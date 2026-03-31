@@ -1,0 +1,1639 @@
+[
+  {
+    "id": "pwd-1",
+    "domain": "Password Habits",
+    "text": "Do you use the same password for multiple online accounts?",
+    "options": [
+      { "text": "Yes, I use the same 1 or 2 passwords for almost everything.", "weight": 0 },
+      { "text": "Sometimes, but only for accounts that aren't important.", "weight": 10 },
+      { "text": "Never. Every single account has a unique password.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Start Using a Password Manager",
+      "description": "Reusing passwords is the #1 way accounts get hacked. A password manager will remember unique passwords for you.",
+      "impact": 10,
+      "ease": 7
+    }
+  },
+  {
+    "id": "pwd-2",
+    "domain": "Password Habits",
+    "text": "How do you store and remember your passwords?",
+    "options": [
+      { "text": "I write them down on paper or in a plain text file/notes app.", "weight": 0 },
+      { "text": "I let my web browser save them.", "weight": 10 },
+      { "text": "I use a dedicated, encrypted Password Manager (e.g., Bitwarden, 1Password).", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Secure Your Written Passwords",
+      "description": "Plain text files and notebooks are easily compromised. Migrate them to an encrypted app like Bitwarden or 1Password.",
+      "impact": 9,
+      "ease": 6
+    }
+  },
+  {
+    "id": "pwd-3",
+    "domain": "Password Habits",
+    "text": "When creating a new password, what is your standard format?",
+    "options": [
+      { "text": "A memorable word with a number at the end (e.g., Summer2024!).", "weight": 0 },
+      { "text": "A random mix of characters, but shorter than 12 characters.", "weight": 10 },
+      { "text": "A passphrase or random string that is 14+ characters long.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Switch to Passphrases",
+      "description": "Length beats complexity. Instead of short passwords with symbols, use 4 random words strung together (e.g., horse-battery-staple-correct).",
+      "impact": 8,
+      "ease": 9
+    }
+  },
+  {
+    "id": "pwd-4",
+    "domain": "Password Habits",
+    "text": "Do you have Two-Factor Authentication (2FA) enabled on your critical accounts (Email, Banking)?",
+    "options": [
+      { "text": "No, it takes too much time to log in.", "weight": 0 },
+      { "text": "Yes, I receive an SMS text message with a code.", "weight": 15 },
+      { "text": "Yes, I use an Authenticator App (e.g., Authy, Google Auth) or a hardware key.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Enable 2FA on Critical Accounts",
+      "description": "Turn on Two-Factor Authentication (preferably via an Authenticator App) for your primary Email and Bank accounts immediately.",
+      "impact": 10,
+      "ease": 5
+    }
+  },
+  {
+    "id": "pwd-5",
+    "domain": "Password Habits",
+    "text": "If a company you have an account with announces a data breach, what do you do?",
+    "options": [
+      { "text": "Nothing, it usually doesn't affect me.", "weight": 0 },
+      { "text": "I change my password for that specific site eventually.", "weight": 10 },
+      { "text": "I immediately change that password and any other accounts that shared it.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "React Faster to Data Breaches",
+      "description": "Register your email on HaveIBeenPwned.com to get automated alerts if your data leaks, so you can change passwords instantly.",
+      "impact": 8,
+      "ease": 10
+    }
+  },
+  {
+    "id": "pwd-6",
+    "domain": "Password Habits",
+    "text": "How often do you change passwords for your most important accounts (email, banking, primary social media)?",
+    "options": [
+      { "text": "Rarely or never, unless I'm locked out.", "weight": 0 },
+      { "text": "Only when a site forces me to change it.", "weight": 10 },
+      { "text": "Proactively every 3–12 months or after any suspicious activity.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Adopt Regular Password Rotation",
+      "description": "Schedule periodic password updates for critical accounts so that a stolen password becomes useless faster.",
+      "impact": 8,
+      "ease": 6
+    }
+  },
+  {
+    "id": "pwd-7",
+    "domain": "Password Habits",
+    "text": "How do you handle default passwords on new devices or accounts?",
+    "options": [
+      { "text": "I leave default passwords as they are.", "weight": 0 },
+      { "text": "I change them only if prompted or when I remember.", "weight": 10 },
+      { "text": "I always change default passwords immediately during setup.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Eliminate Default Passwords",
+      "description": "Default passwords are widely known to attackers. Always replace them with strong, unique credentials right after setup.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "pwd-8",
+    "domain": "Password Habits",
+    "text": "Do you use a password manager across all your devices (laptop, phone, tablet)?",
+    "options": [
+      { "text": "No, I don't use a password manager at all.", "weight": 0 },
+      { "text": "Yes, but only on one device or inconsistently.", "weight": 10 },
+      { "text": "Yes, it's installed and synced on every device I use.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Enable Cross-Device Sync for Your Password Manager",
+      "description": "Using your password manager everywhere avoids the temptation to reuse or simplify passwords on secondary devices.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "pwd-9",
+    "domain": "Password Habits",
+    "text": "Have you ever shared a password with someone else (family, friends, colleagues)?",
+    "options": [
+      { "text": "Yes, I frequently share passwords when needed.", "weight": 0 },
+      { "text": "Only for less important accounts like streaming services.", "weight": 10 },
+      { "text": "No, I never share passwords. I use features like 'family sharing' instead.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Stop Sharing Passwords Directly",
+      "description": "Shared passwords quickly lose control. Use official sharing features or separate accounts so you can revoke access safely.",
+      "impact": 7,
+      "ease": 8
+    }
+  },
+  {
+    "id": "pwd-10",
+    "domain": "Password Habits",
+    "text": "How strong are the passwords for your email accounts (the accounts used for password resets)?",
+    "options": [
+      { "text": "They are simple and easy to remember.", "weight": 0 },
+      { "text": "They are moderately complex but reused elsewhere.", "weight": 10 },
+      { "text": "They are long, unique, and stored in a password manager.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Harden Your Email Passwords",
+      "description": "Email accounts control password resets. Treat them like master keys and secure them with strong, unique credentials.",
+      "impact": 10,
+      "ease": 7
+    }
+  },
+  {
+    "id": "pwd-11",
+    "domain": "Password Habits",
+    "text": "Do your passwords include easily guessable information (birthdays, names, favorite teams)?",
+    "options": [
+      { "text": "Yes, I usually include personal info so I don't forget.", "weight": 0 },
+      { "text": "Sometimes, but I mix it with other characters.", "weight": 10 },
+      { "text": "Never. I avoid any personal information in passwords.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Remove Personal Clues From Passwords",
+      "description": "Attackers use your public information to guess passwords. Rely on random words or manager-generated strings instead.",
+      "impact": 8,
+      "ease": 9
+    }
+  },
+  {
+    "id": "pwd-12",
+    "domain": "Password Habits",
+    "text": "When a site offers 'Sign in with Google/Apple/Facebook', how do you decide?",
+    "options": [
+      { "text": "I use social login everywhere without thinking about it.", "weight": 0 },
+      { "text": "I sometimes use it for convenience on low-risk sites.", "weight": 10 },
+      { "text": "I deliberately choose trusted providers with strong security and 2FA, and avoid over-linking accounts.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Use Single Sign-On Strategically",
+      "description": "Central logins can be secure if protected with strong passwords and 2FA, but avoid linking everything to one account.",
+      "impact": 7,
+      "ease": 6
+    }
+  },
+  {
+    "id": "pwd-13",
+    "domain": "Password Habits",
+    "text": "How do you handle password resets when you forget a password?",
+    "options": [
+      { "text": "I just reuse an old or similar password each time.", "weight": 0 },
+      { "text": "I create a new password, but often reuse patterns.", "weight": 10 },
+      { "text": "I generate a brand-new unique password and store it securely.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Break Predictable Password Patterns",
+      "description": "Repeated patterns like 'Password2024', 'Password2025' are easy to guess. Let your manager generate new passwords each time.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "pwd-14",
+    "domain": "Password Habits",
+    "text": "Have you ever checked if your passwords or emails appear in known data breaches?",
+    "options": [
+      { "text": "No, I have never checked.", "weight": 0 },
+      { "text": "I checked once or twice in the past.", "weight": 10 },
+      { "text": "I regularly check and monitor for breaches using services like HaveIBeenPwned.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Monitor for Credential Leaks",
+      "description": "Use reputable breach-checking tools and set alerts so you can update compromised passwords immediately.",
+      "impact": 9,
+      "ease": 9
+    }
+  },
+  {
+    "id": "pwd-15",
+    "domain": "Password Habits",
+    "text": "How do you handle passwords on shared or public computers (e.g., cybercafé, friend's laptop)?",
+    "options": [
+      { "text": "I log in normally and let the browser save passwords if convenient.", "weight": 0 },
+      { "text": "I avoid saving passwords but still log in directly.", "weight": 10 },
+      { "text": "I avoid logging into sensitive accounts or use incognito + password manager + manual logout.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Avoid Saving Passwords on Shared Devices",
+      "description": "Never let shared machines remember your passwords, and log out fully after use to prevent hijacking.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "pwd-16",
+    "domain": "Password Habits",
+    "text": "Do you use simple PINs or patterns for device unlock instead of strong passwords?",
+    "options": [
+      { "text": "Yes, I use an easy 4‑digit PIN or simple pattern.", "weight": 0 },
+      { "text": "I use a moderately complex PIN or pattern.", "weight": 10 },
+      { "text": "I use strong PINs, passwords, or biometrics configured securely.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Strengthen Device Unlock Methods",
+      "description": "Simple PINs can be shoulder‑surfed. Use longer PINs, complex passwords, and biometric features where available.",
+      "impact": 9,
+      "ease": 6
+    }
+  },
+  {
+    "id": "pwd-17",
+    "domain": "Password Habits",
+    "text": "How do you manage passwords for work and personal accounts?",
+    "options": [
+      { "text": "I often reuse the same or similar passwords between work and personal accounts.", "weight": 0 },
+      { "text": "I try to separate them, but there is some overlap.", "weight": 10 },
+      { "text": "Work and personal accounts always have distinct, unique passwords.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Separate Work and Personal Credentials",
+      "description": "Keep professional and personal passwords completely distinct so one breach does not compromise everything.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+
+  {
+    "id": "dev-1",
+    "domain": "Device Security",
+    "text": "How often do you install operating system updates on your primary devices (phone, laptop)?",
+    "options": [
+      { "text": "I ignore updates or postpone them indefinitely.", "weight": 0 },
+      { "text": "I install updates occasionally when I have time.", "weight": 10 },
+      { "text": "I install updates promptly or have automatic updates enabled.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Enable Automatic Updates",
+      "description": "Security patches fix known vulnerabilities. Turn on automatic updates for your OS and key apps.",
+      "impact": 10,
+      "ease": 9
+    }
+  },
+  {
+    "id": "dev-2",
+    "domain": "Device Security",
+    "text": "Do you use reputable antivirus or endpoint protection software on your devices?",
+    "options": [
+      { "text": "No, I don't use any antivirus or protection tools.", "weight": 0 },
+      { "text": "I use free or built‑in protection but rarely check it.", "weight": 10 },
+      { "text": "I use well‑known security software and keep it updated with regular scans.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Install and Maintain Security Software",
+      "description": "Reliable security tools help detect malware, ransomware, and other threats before they cause damage.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "dev-3",
+    "domain": "Device Security",
+    "text": "How quickly do you install security patches for browsers, messaging apps, and critical software?",
+    "options": [
+      { "text": "I rarely update apps unless they break.", "weight": 0 },
+      { "text": "I update apps sometimes but not urgently.", "weight": 10 },
+      { "text": "I update apps as soon as updates are available or use auto‑update.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Prioritize Application Updates",
+      "description": "Browsers and communication apps are common attack targets. Keep them fully patched at all times.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "dev-4",
+    "domain": "Device Security",
+    "text": "Do you use a lock screen (PIN, password, biometric) on your smartphone and laptop?",
+    "options": [
+      { "text": "No, my devices unlock without any security.", "weight": 0 },
+      { "text": "I use a simple PIN or pattern that is easy to guess.", "weight": 10 },
+      { "text": "I use strong PINs/passwords and/or biometrics on all devices.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Lock All Devices",
+      "description": "Unprotected devices expose email, banking, and messages. Always require a PIN, password, or biometric to unlock.",
+      "impact": 10,
+      "ease": 8
+    }
+  },
+  {
+    "id": "dev-5",
+    "domain": "Device Security",
+    "text": "Is full-disk encryption enabled on your laptop and mobile devices (e.g., BitLocker, FileVault, Android/iOS encryption)?",
+    "options": [
+      { "text": "No, my devices are not encrypted or I am not sure.", "weight": 0 },
+      { "text": "Some devices are encrypted, others are not.", "weight": 10 },
+      { "text": "All devices that support it have full‑disk encryption enabled.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Turn On Device Encryption",
+      "description": "If your device is lost or stolen, encryption keeps your data unreadable without your password.",
+      "impact": 9,
+      "ease": 6
+    }
+  },
+  {
+    "id": "dev-6",
+    "domain": "Device Security",
+    "text": "How do you handle device backups?",
+    "options": [
+      { "text": "I rarely or never back up my devices.", "weight": 0 },
+      { "text": "I back up manually from time to time.", "weight": 10 },
+      { "text": "I have automatic, encrypted backups configured (local or cloud).", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Configure Automatic Backups",
+      "description": "Regular backups protect you against ransomware, hardware failure, and accidental deletion.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "dev-7",
+    "domain": "Device Security",
+    "text": "Do you install apps or software from unofficial or pirated sources?",
+    "options": [
+      { "text": "Yes, I often use cracked or unofficial versions.", "weight": 0 },
+      { "text": "Occasionally, if I trust the source.", "weight": 10 },
+      { "text": "Never. I only install from official stores or verified vendors.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Avoid Pirated and Untrusted Software",
+      "description": "Unofficial downloads are a major malware risk. Stick to official stores and trusted vendors only.",
+      "impact": 10,
+      "ease": 8
+    }
+  },
+  {
+    "id": "dev-8",
+    "domain": "Device Security",
+    "text": "How do you handle USB drives and external media from unknown sources?",
+    "options": [
+      { "text": "I plug them in and open files without concern.", "weight": 0 },
+      { "text": "I scan them sometimes with antivirus.", "weight": 10 },
+      { "text": "I avoid unknown media or always scan them before opening any file.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Treat Unknown USB Devices as Risky",
+      "description": "Malicious USBs can infect devices quickly. Only use trusted drives and scan them first.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "dev-9",
+    "domain": "Device Security",
+    "text": "Do you allow your devices to auto-connect to any available Bluetooth or nearby devices?",
+    "options": [
+      { "text": "Yes, I leave Bluetooth on and connect freely.", "weight": 0 },
+      { "text": "I sometimes disable it in public places.", "weight": 10 },
+      { "text": "I keep Bluetooth off when not needed and control pairing requests.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Limit Unnecessary Wireless Connections",
+      "description": "Disable Bluetooth and other radios when not needed to reduce attack surfaces.",
+      "impact": 7,
+      "ease": 8
+    }
+  },
+  {
+    "id": "dev-10",
+    "domain": "Device Security",
+    "text": "Have you enabled 'Find My Device' or equivalent tracking/wipe features?",
+    "options": [
+      { "text": "No, I have not enabled any tracking or remote wipe features.", "weight": 0 },
+      { "text": "I enabled it on some devices but not all.", "weight": 10 },
+      { "text": "All my devices have tracking and remote wipe configured.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Set Up Remote Locate and Wipe",
+      "description": "If a device is lost, remote tracking and wiping help protect your data and accounts.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "dev-11",
+    "domain": "Device Security",
+    "text": "Do you use separate user accounts on shared computers at home or work?",
+    "options": [
+      { "text": "No, everyone uses the same account.", "weight": 0 },
+      { "text": "There are some separate accounts but shared in practice.", "weight": 10 },
+      { "text": "Each person has their own password‑protected account.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Use Individual User Accounts",
+      "description": "Separate accounts reduce accidental changes and limit the spread of malware or misconfigurations.",
+      "impact": 7,
+      "ease": 6
+    }
+  },
+  {
+    "id": "dev-12",
+    "domain": "Device Security",
+    "text": "Are you still using devices or operating systems that no longer receive security updates?",
+    "options": [
+      { "text": "Yes, I regularly use unsupported devices/OS versions.", "weight": 0 },
+      { "text": "A few older devices are still in use.", "weight": 10 },
+      { "text": "I avoid unsupported systems and upgrade before end‑of‑support.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Retire Unsupported Systems",
+      "description": "Old systems without patches are easy targets. Upgrade or isolate them from sensitive activities.",
+      "impact": 9,
+      "ease": 5
+    }
+  },
+  {
+    "id": "dev-13",
+    "domain": "Device Security",
+    "text": "Do you jailbreak or root your smartphone?",
+    "options": [
+      { "text": "Yes, my primary phone is rooted/jailbroken.", "weight": 0 },
+      { "text": "I experimented on a secondary device only.", "weight": 10 },
+      { "text": "No, I keep my devices in the default, supported configuration.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Avoid Rooting/Jailbreaking Daily-Use Devices",
+      "description": "Rooted devices often bypass security controls and are more vulnerable to malware.",
+      "impact": 8,
+      "ease": 6
+    }
+  },
+  {
+    "id": "dev-14",
+    "domain": "Device Security",
+    "text": "How do you secure physical access to your devices when traveling or in public spaces?",
+    "options": [
+      { "text": "I often leave devices unattended or unlocked.", "weight": 0 },
+      { "text": "I lock them sometimes but not consistently.", "weight": 10 },
+      { "text": "I lock devices, keep them in sight, and avoid leaving them unattended.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Protect Devices Physically",
+      "description": "Physical theft can bypass digital controls. Keep devices near you and locked when unattended.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "dev-15",
+    "domain": "Device Security",
+    "text": "Do you review your device security settings (firewall, privacy, permissions) periodically?",
+    "options": [
+      { "text": "No, I never look at these settings.", "weight": 0 },
+      { "text": "Occasionally, when I notice something unusual.", "weight": 10 },
+      { "text": "Yes, I periodically review and tighten my security settings.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Regularly Audit Device Settings",
+      "description": "Periodic reviews help you catch misconfigurations and unnecessary exposures early.",
+      "impact": 7,
+      "ease": 7
+    }
+  },
+  {
+    "id": "dev-16",
+    "domain": "Device Security",
+    "text": "How do you handle notifications that appear on your lock screen (messages, OTPs, emails)?",
+    "options": [
+      { "text": "Everything is visible on the lock screen, including full messages.", "weight": 0 },
+      { "text": "Some sensitive content is hidden, but not all.", "weight": 10 },
+      { "text": "I hide sensitive content or turn off lock‑screen previews for private apps.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Limit Sensitive Lock-Screen Content",
+      "description": "Lock‑screen previews can reveal OTPs and private data. Restrict what is shown when the device is locked.",
+      "impact": 7,
+      "ease": 8
+    }
+  },
+  {
+    "id": "dev-17",
+    "domain": "Device Security",
+    "text": "Do you use a personal firewall or router firewall to protect your home devices?",
+    "options": [
+      { "text": "No, I rely only on my ISP's default setup.", "weight": 0 },
+      { "text": "I use a basic router firewall with default settings.", "weight": 10 },
+      { "text": "I ensure firewall features are enabled and properly configured.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Verify Firewall Protection",
+      "description": "A correctly configured firewall adds a strong layer of defence against unsolicited inbound traffic.",
+      "impact": 8,
+      "ease": 6
+    }
+  },
+
+  {
+    "id": "soc-1",
+    "domain": "Social Media Safety",
+    "text": "What is the default visibility of your main social media profiles?",
+    "options": [
+      { "text": "Public. Anyone can see my posts and profile details.", "weight": 0 },
+      { "text": "Partially restricted with some privacy settings enabled.", "weight": 10 },
+      { "text": "Mostly private, limited to friends/contacts I approve.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Tighten Profile Privacy",
+      "description": "Set your profiles to friends‑only and review what non‑contacts can see about you.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "soc-2",
+    "domain": "Social Media Safety",
+    "text": "How often do you review and adjust social media privacy settings?",
+    "options": [
+      { "text": "Never. I leave them at default.", "weight": 0 },
+      { "text": "Occasionally, when prompted by the platform.", "weight": 10 },
+      { "text": "Regularly, at least a few times per year.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Schedule Privacy Checkups",
+      "description": "Platforms frequently change features. Regular reviews keep your exposure under control.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "soc-3",
+    "domain": "Social Media Safety",
+    "text": "What kind of personal information do you share publicly on social media?",
+    "options": [
+      { "text": "I post details like address, phone number, or travel plans.", "weight": 0 },
+      { "text": "I share some personal info but avoid the most sensitive details.", "weight": 10 },
+      { "text": "I avoid posting sensitive personal or location information publicly.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Reduce Sensitive Public Posts",
+      "description": "Oversharing helps attackers guess passwords and target scams. Keep critical details offline.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "soc-4",
+    "domain": "Social Media Safety",
+    "text": "How do you handle friend/follow requests from people you do not recognize?",
+    "options": [
+      { "text": "I often accept them to grow my network.", "weight": 0 },
+      { "text": "I sometimes accept if we have mutual connections.", "weight": 10 },
+      { "text": "I only accept requests from people I know or can verify.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Screen Connection Requests Carefully",
+      "description": "Fake profiles can harvest data or send malicious links. Only connect with verified people.",
+      "impact": 8,
+      "ease": 9
+    }
+  },
+  {
+    "id": "soc-5",
+    "domain": "Social Media Safety",
+    "text": "Do you click on links or open attachments received via social media messages from unknown or semi-known contacts?",
+    "options": [
+      { "text": "Yes, I often click if the content looks interesting.", "weight": 0 },
+      { "text": "I sometimes click but try to be cautious.", "weight": 10 },
+      { "text": "I rarely click unfamiliar links and verify with the sender first.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Treat Social Media Links as Suspicious",
+      "description": "Phishing and malware often arrive via DMs. Verify unexpected links before opening.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "soc-6",
+    "domain": "Social Media Safety",
+    "text": "Do you use Two-Factor Authentication (2FA) on your social media accounts?",
+    "options": [
+      { "text": "No, it's not enabled on any account.", "weight": 0 },
+      { "text": "Enabled on some important accounts.", "weight": 10 },
+      { "text": "Enabled on all main social accounts, using an authenticator app when possible.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Enable 2FA on Social Platforms",
+      "description": "Account takeovers are very common. 2FA stops many attacks even if your password leaks.",
+      "impact": 10,
+      "ease": 6
+    }
+  },
+  {
+    "id": "soc-7",
+    "domain": "Social Media Safety",
+    "text": "How often do you review and revoke third-party apps connected to your social media accounts?",
+    "options": [
+      { "text": "Never. I forget which apps have access.", "weight": 0 },
+      { "text": "Occasionally, when notified of suspicious activity.", "weight": 10 },
+      { "text": "Regularly review and remove apps I no longer use.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Audit Connected Apps",
+      "description": "Old games and apps can still access your data. Revoke permissions for anything unnecessary.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "soc-8",
+    "domain": "Social Media Safety",
+    "text": "Do you allow social media platforms to automatically tag your location in posts?",
+    "options": [
+      { "text": "Yes, location is usually enabled.", "weight": 0 },
+      { "text": "Sometimes, mainly for special events.", "weight": 10 },
+      { "text": "I disable location tagging or use it very selectively.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Limit Location Sharing",
+      "description": "Real‑time location data can enable stalking or burglary. Share locations sparingly and after leaving.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "soc-9",
+    "domain": "Social Media Safety",
+    "text": "How do you respond to online quizzes and surveys that ask for personal details (e.g., first pet's name)?",
+    "options": [
+      { "text": "I often participate and give real answers.", "weight": 0 },
+      { "text": "Sometimes I answer but avoid the most sensitive questions.", "weight": 10 },
+      { "text": "I avoid such quizzes or give fake, non-identifying answers.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Avoid Sharing Security Question Clues",
+      "description": "Quizzes often harvest answers used for password resets. Never share real security-question data.",
+      "impact": 9,
+      "ease": 9
+    }
+  },
+  {
+    "id": "soc-10",
+    "domain": "Social Media Safety",
+    "text": "Do you use unique passwords for your social media accounts compared to other sites?",
+    "options": [
+      { "text": "No, I reuse passwords across social and other sites.", "weight": 0 },
+      { "text": "Some accounts share passwords, others are unique.", "weight": 10 },
+      { "text": "All social accounts have distinct, strong passwords.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Isolate Social Media Passwords",
+      "description": "If a forum is breached, reused passwords can expose your social accounts. Make them unique.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "soc-11",
+    "domain": "Social Media Safety",
+    "text": "How do you manage who can tag you or post on your timeline?",
+    "options": [
+      { "text": "Anyone can tag me or post on my timeline.", "weight": 0 },
+      { "text": "Friends can tag/post, but I rarely review tags.", "weight": 10 },
+      { "text": "I review tags/posts before they appear or have strict controls.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Control Tagging and Timeline Posts",
+      "description": "Restrict who can tag or post to reduce impersonation and reputation risks.",
+      "impact": 7,
+      "ease": 8
+    }
+  },
+  {
+    "id": "soc-12",
+    "domain": "Social Media Safety",
+    "text": "When you stop using a social media platform, what do you do with the account?",
+    "options": [
+      { "text": "I simply stop logging in and forget about it.", "weight": 0 },
+      { "text": "I sometimes change the password first.", "weight": 10 },
+      { "text": "I deactivate or delete old accounts whenever possible.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Close Unused Social Accounts",
+      "description": "Dormant accounts can be hijacked. Delete or deactivate platforms you no longer use.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "soc-13",
+    "domain": "Social Media Safety",
+    "text": "Do you separate professional and personal identities across social platforms?",
+    "options": [
+      { "text": "No, I use the same profiles for everything.", "weight": 0 },
+      { "text": "Partially separated but still mixed content.", "weight": 10 },
+      { "text": "Yes, I maintain clearly separated professional and personal profiles.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Differentiate Professional and Personal Profiles",
+      "description": "Separation helps you manage privacy and reduce the impact of any single compromise.",
+      "impact": 6,
+      "ease": 7
+    }
+  },
+  {
+    "id": "soc-14",
+    "domain": "Social Media Safety",
+    "text": "How do you respond if friends or followers report receiving strange messages from your account?",
+    "options": [
+      { "text": "I ignore it or assume it's a glitch.", "weight": 0 },
+      { "text": "I change my password later and delete odd posts.", "weight": 10 },
+      { "text": "I immediately change password, check logins, revoke apps, and alert contacts.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Act Quickly on Account Takeover Signs",
+      "description": "Fast action limits damage if your account is hijacked. Secure it and inform your network.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "soc-15",
+    "domain": "Social Media Safety",
+    "text": "Do you enable login alerts or new device notifications on social media platforms?",
+    "options": [
+      { "text": "No, I don't use these alerts.", "weight": 0 },
+      { "text": "Enabled on some accounts only.", "weight": 10 },
+      { "text": "Enabled on all major platforms I use.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Turn On Login Alerts",
+      "description": "Login alerts give you an early warning if someone else signs into your account.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "soc-16",
+    "domain": "Social Media Safety",
+    "text": "How carefully do you consider the audience (friends lists, groups) before posting sensitive updates?",
+    "options": [
+      { "text": "I usually post without adjusting audience settings.", "weight": 0 },
+      { "text": "Sometimes I choose a smaller audience for personal posts.", "weight": 10 },
+      { "text": "I actively choose audiences and use lists/groups for sensitive topics.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Use Audience Controls",
+      "description": "Not every update needs to be public. Segment audiences to reduce unnecessary exposure.",
+      "impact": 7,
+      "ease": 7
+    }
+  },
+  {
+    "id": "soc-17",
+    "domain": "Social Media Safety",
+    "text": "Do you educate family members (especially children or elders) about safe social media habits?",
+    "options": [
+      { "text": "No, I have not discussed social media safety with them.", "weight": 0 },
+      { "text": "We have had a few informal conversations.", "weight": 10 },
+      { "text": "I regularly guide them and help configure their privacy and security settings.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Extend Safety Practices to Family",
+      "description": "Attackers can target your relatives to reach you. Share good habits with them as well.",
+      "impact": 8,
+      "ease": 6
+    }
+  },
+
+  {
+    "id": "eml-1",
+    "domain": "Email and Phishing Awareness",
+    "text": "How do you react to emails from unknown senders with links or attachments?",
+    "options": [
+      { "text": "I often open them if the subject looks interesting or urgent.", "weight": 0 },
+      { "text": "I am cautious but sometimes click if it seems legitimate.", "weight": 10 },
+      { "text": "I verify the sender and link independently before interacting, or delete them.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Treat Unsolicited Emails as Suspicious",
+      "description": "Phishing emails often appear urgent. Verify through official channels before clicking.",
+      "impact": 10,
+      "ease": 8
+    }
+  },
+  {
+    "id": "eml-2",
+    "domain": "Email and Phishing Awareness",
+    "text": "Do you check email sender addresses carefully (not just display names)?",
+    "options": [
+      { "text": "No, I mostly look at the display name and subject.", "weight": 0 },
+      { "text": "Sometimes I check the full address if something seems off.", "weight": 10 },
+      { "text": "I regularly inspect the full sender address and domain.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Inspect Sender Domains",
+      "description": "Attackers spoof names but not domains perfectly. Check full addresses for subtle differences.",
+      "impact": 9,
+      "ease": 9
+    }
+  },
+  {
+    "id": "eml-3",
+    "domain": "Email and Phishing Awareness",
+    "text": "How do you handle emails that ask for passwords, OTPs, or financial information?",
+    "options": [
+      { "text": "I may reply if I think the request is from a trusted organization.", "weight": 0 },
+      { "text": "I sometimes respond after quickly checking the context.", "weight": 10 },
+      { "text": "I never share such details by email and contact the organization via official channels instead.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Never Send Sensitive Data via Email",
+      "description": "Legitimate organizations will not ask for passwords or OTPs over email. Use official websites or apps instead.",
+      "impact": 10,
+      "ease": 9
+    }
+  },
+  {
+    "id": "eml-4",
+    "domain": "Email and Phishing Awareness",
+    "text": "Do you hover over links in emails to preview the actual URL before clicking?",
+    "options": [
+      { "text": "No, I usually just click links directly.", "weight": 0 },
+      { "text": "Sometimes, if the email seems suspicious.", "weight": 10 },
+      { "text": "Yes, I routinely preview links and type important URLs manually.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Preview Links Before Clicking",
+      "description": "Hovering over links reveals the real destination and helps you avoid fake login pages.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "eml-5",
+    "domain": "Email and Phishing Awareness",
+    "text": "How do you unsubscribe from unwanted marketing emails?",
+    "options": [
+      { "text": "I click any 'unsubscribe' link I see, even in suspicious emails.", "weight": 0 },
+      { "text": "I sometimes unsubscribe, sometimes mark as spam.", "weight": 10 },
+      { "text": "I only unsubscribe from clearly legitimate senders and mark others as spam.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Use Spam Reporting Safely",
+      "description": "Unsubscribing from malicious emails confirms your address. Mark them as spam instead.",
+      "impact": 8,
+      "ease": 9
+    }
+  },
+  {
+    "id": "eml-6",
+    "domain": "Email and Phishing Awareness",
+    "text": "Do you use spam filters and phishing protection features in your email service?",
+    "options": [
+      { "text": "No, or I have disabled them.", "weight": 0 },
+      { "text": "I use default settings but rarely review spam folders.", "weight": 10 },
+      { "text": "I keep filters enabled and review spam folders carefully for false positives.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Leverage Built-In Email Protection",
+      "description": "Modern email services provide strong filters. Keep them enabled and tuned.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "eml-7",
+    "domain": "Email and Phishing Awareness",
+    "text": "How do you respond to emails claiming to be from your bank or payment provider with urgent actions?",
+    "options": [
+      { "text": "I click the link or attachment if it looks genuine.", "weight": 0 },
+      { "text": "I might call a number in the email to confirm.", "weight": 10 },
+      { "text": "I log in via the official website/app or call the number printed on my card.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Verify Financial Emails Out-of-Band",
+      "description": "Never trust contact info in the message. Use known official channels instead.",
+      "impact": 10,
+      "ease": 8
+    }
+  },
+  {
+    "id": "eml-8",
+    "domain": "Email and Phishing Awareness",
+    "text": "Do you separate email addresses for different purposes (banking, shopping, newsletters)?",
+    "options": [
+      { "text": "No, I use the same email everywhere.", "weight": 0 },
+      { "text": "I have a couple of emails but reuse them widely.", "weight": 10 },
+      { "text": "I use separate or alias emails for critical services vs general use.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Segment Email Identities",
+      "description": "Different addresses reduce spam on your main account and limit damage if one address is leaked.",
+      "impact": 7,
+      "ease": 7
+    }
+  },
+  {
+    "id": "eml-9",
+    "domain": "Email and Phishing Awareness",
+    "text": "How do you handle unexpected attachments, even from known contacts?",
+    "options": [
+      { "text": "I open them if they come from someone I know.", "weight": 0 },
+      { "text": "I sometimes verify if the message seems odd.", "weight": 10 },
+      { "text": "I confirm with the sender via another channel before opening suspicious attachments.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Verify Suspicious Attachments",
+      "description": "Compromised accounts can send malware to their contacts. Confirm unexpected files before opening.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "eml-10",
+    "domain": "Email and Phishing Awareness",
+    "text": "Are you familiar with common phishing indicators (typos, mismatched URLs, generic greetings)?",
+    "options": [
+      { "text": "Not really; I haven't learned about them.", "weight": 0 },
+      { "text": "I know some signs but don't always check.", "weight": 10 },
+      { "text": "Yes, I actively look for these red flags in every email.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Learn Phishing Red Flags",
+      "description": "Train yourself to spot suspicious patterns so you can avoid falling for scams.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "eml-11",
+    "domain": "Email and Phishing Awareness",
+    "text": "Do you use email encryption or secure messaging for highly sensitive communications?",
+    "options": [
+      { "text": "No, I send everything in plain email.", "weight": 0 },
+      { "text": "Occasionally I use secure channels when reminded.", "weight": 10 },
+      { "text": "I use end‑to‑end encrypted tools or email encryption for sensitive topics.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Use Encrypted Channels for Sensitive Data",
+      "description": "Plain email is like a postcard. Use end‑to‑end encrypted apps or email encryption when privacy matters.",
+      "impact": 8,
+      "ease": 5
+    }
+  },
+  {
+    "id": "eml-12",
+    "domain": "Email and Phishing Awareness",
+    "text": "How do you respond to job offers, lottery wins, or prize notifications received by email?",
+    "options": [
+      { "text": "I often reply or click to see what I won.", "weight": 0 },
+      { "text": "I sometimes verify but still explore some offers.", "weight": 10 },
+      { "text": "I treat them as scams unless I can independently confirm legitimacy.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Assume Unexpected Windfalls Are Scams",
+      "description": "Most unsolicited prizes and offers are fraud. Delete or verify via official websites.",
+      "impact": 8,
+      "ease": 9
+    }
+  },
+  {
+    "id": "eml-13",
+    "domain": "Email and Phishing Awareness",
+    "text": "Do you regularly review security and login activity logs for your email accounts?",
+    "options": [
+      { "text": "No, I never check these logs.", "weight": 0 },
+      { "text": "Occasionally, if I suspect something.", "weight": 10 },
+      { "text": "Yes, I periodically review recent logins and devices.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Monitor Email Login Activity",
+      "description": "Reviewing login history helps you spot unauthorized access early.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "eml-14",
+    "domain": "Email and Phishing Awareness",
+    "text": "Do you use Two-Factor Authentication (2FA) on your primary email accounts?",
+    "options": [
+      { "text": "No, only passwords.", "weight": 0 },
+      { "text": "Enabled on at least one primary email.", "weight": 10 },
+      { "text": "Enabled on all primary and recovery emails.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Protect Email With 2FA",
+      "description": "Email is the key to many other accounts. Secure it with 2FA to prevent takeovers.",
+      "impact": 10,
+      "ease": 6
+    }
+  },
+  {
+    "id": "eml-15",
+    "domain": "Email and Phishing Awareness",
+    "text": "Do you have separate email addresses for account recovery versus daily communication?",
+    "options": [
+      { "text": "No, I use one email for everything.", "weight": 0 },
+      { "text": "I have multiple emails but they all mix uses.", "weight": 10 },
+      { "text": "I keep a dedicated, well‑protected email for recovery and critical services.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Use a Hardened Recovery Email",
+      "description": "A dedicated recovery email, secured with 2FA, reduces the chance of broad account compromise.",
+      "impact": 8,
+      "ease": 6
+    }
+  },
+  {
+    "id": "eml-16",
+    "domain": "Email and Phishing Awareness",
+    "text": "Do you train yourself or your team using phishing simulations or awareness materials?",
+    "options": [
+      { "text": "No, I haven't done any structured training.", "weight": 0 },
+      { "text": "I have read some articles or taken a basic course.", "weight": 10 },
+      { "text": "I regularly participate in phishing simulations or formal training.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Invest Time in Phishing Awareness",
+      "description": "Practice recognizing scams through training or simulations to build strong instincts.",
+      "impact": 9,
+      "ease": 5
+    }
+  },
+  {
+    "id": "eml-17",
+    "domain": "Email and Phishing Awareness",
+    "text": "How do you handle email access on public or shared computers?",
+    "options": [
+      { "text": "I sign in normally and sometimes forget to log out.", "weight": 0 },
+      { "text": "I log out but let the browser remember my email.", "weight": 10 },
+      { "text": "I use private mode, avoid saving credentials, and log out completely.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Secure Email on Shared Devices",
+      "description": "Never save passwords on shared machines and always log out fully when finished.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+
+  {
+    "id": "net-1",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "How strong is your home Wi-Fi password?",
+    "options": [
+      { "text": "It's short, simple, or still the default.", "weight": 0 },
+      { "text": "It's moderately complex but reused elsewhere.", "weight": 10 },
+      { "text": "It's long, unique, and only shared with trusted people.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Harden Your Wi-Fi Password",
+      "description": "Your home network password should be unique and hard to guess to keep intruders out.",
+      "impact": 10,
+      "ease": 8
+    }
+  },
+  {
+    "id": "net-2",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Have you changed the default admin username and password on your home router?",
+    "options": [
+      { "text": "No, they are still the factory defaults.", "weight": 0 },
+      { "text": "I changed one of them (username or password).", "weight": 10 },
+      { "text": "Yes, both admin username and password are unique and strong.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Change Router Admin Credentials",
+      "description": "Default router logins are widely known. Update them immediately to block easy access.",
+      "impact": 10,
+      "ease": 8
+    }
+  },
+  {
+    "id": "net-3",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "What type of Wi-Fi encryption is your home network using?",
+    "options": [
+      { "text": "Open or WEP/no idea which one.", "weight": 0 },
+      { "text": "WPA or WPA2 without checking details.", "weight": 10 },
+      { "text": "WPA2 or WPA3 with a strong password configured.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Use WPA2 or WPA3 Encryption",
+      "description": "Old standards like WEP are broken. Ensure your router uses WPA2 or WPA3.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "net-4",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Do you have a separate guest Wi-Fi network for visitors?",
+    "options": [
+      { "text": "No, guests use the same network as my devices.", "weight": 0 },
+      { "text": "Sometimes I change my main Wi-Fi password for guests.", "weight": 10 },
+      { "text": "Yes, guests use a separate, isolated Wi-Fi network.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Enable a Guest Network",
+      "description": "Guest networks limit what visitors can reach and keep your devices more isolated.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "net-5",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "How do you use public Wi-Fi (cafés, airports, malls)?",
+    "options": [
+      { "text": "I connect to any free Wi-Fi and do everything, including banking.", "weight": 0 },
+      { "text": "I avoid sensitive activities but still connect freely.", "weight": 10 },
+      { "text": "I limit use to low-risk browsing and prefer VPNs or mobile data for sensitive tasks.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Be Careful on Public Wi-Fi",
+      "description": "Treat public Wi‑Fi as untrusted. Use VPN or mobile data for logins and financial activity.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "net-6",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Do you allow your devices to auto-connect to any remembered Wi-Fi networks?",
+    "options": [
+      { "text": "Yes, my device automatically joins any known network.", "weight": 0 },
+      { "text": "I sometimes forget to disable auto-connect.", "weight": 10 },
+      { "text": "I disable auto-connect for public networks and prune old entries.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Disable Auto-Connect on Public Networks",
+      "description": "Attackers can mimic known Wi‑Fi names. Control which networks your device joins automatically.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "net-7",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "How often do you update your router's firmware?",
+    "options": [
+      { "text": "Never or I did it only once when installing.", "weight": 0 },
+      { "text": "Occasionally, when I notice a problem.", "weight": 10 },
+      { "text": "I periodically check for and apply firmware updates.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Keep Router Firmware Updated",
+      "description": "Firmware updates patch security vulnerabilities in your network equipment.",
+      "impact": 9,
+      "ease": 6
+    }
+  },
+  {
+    "id": "net-8",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Do you use a VPN on unsecured or public networks?",
+    "options": [
+      { "text": "No, I never use a VPN.", "weight": 0 },
+      { "text": "Sometimes, especially when working remotely.", "weight": 10 },
+      { "text": "Yes, I routinely enable a reputable VPN on untrusted networks.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Use a VPN on Untrusted Networks",
+      "description": "VPNs encrypt your traffic, making it harder for others to snoop on public Wi‑Fi.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "net-9",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "How do you manage IoT devices (smart bulbs, cameras, speakers) on your network?",
+    "options": [
+      { "text": "All devices share the same network without special configuration.", "weight": 0 },
+      { "text": "I change some defaults but keep them on the main network.", "weight": 10 },
+      { "text": "I change default passwords and, where possible, place IoT on a separate VLAN/guest network.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Segment IoT Devices",
+      "description": "Smart devices are often less secure. Isolating them limits impact if they are compromised.",
+      "impact": 8,
+      "ease": 5
+    }
+  },
+  {
+    "id": "net-10",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Do you ever connect to open Wi-Fi networks that do not require a password?",
+    "options": [
+      { "text": "Yes, frequently and for most activities.", "weight": 0 },
+      { "text": "Occasionally, but I avoid logins if I can.", "weight": 10 },
+      { "text": "Rarely, and only for low‑risk browsing with a VPN if necessary.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Avoid Open Wi-Fi When Possible",
+      "description": "Open networks are easy to monitor. Prefer secured networks or mobile data.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "net-11",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Have you disabled remote administration on your home router (unless strictly needed)?",
+    "options": [
+      { "text": "No, remote admin is enabled or I am not sure.", "weight": 0 },
+      { "text": "I think it is disabled, but I have not checked.", "weight": 10 },
+      { "text": "Yes, remote management is off or securely restricted to VPN.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Disable Unnecessary Remote Access",
+      "description": "Remote admin greatly increases exposure. Turn it off unless you have a strong reason and secure setup.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "net-12",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Do you regularly review which devices are connected to your home network?",
+    "options": [
+      { "text": "No, I never check.", "weight": 0 },
+      { "text": "Occasionally, when something seems slow or odd.", "weight": 10 },
+      { "text": "Yes, I periodically review and remove unknown devices.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Monitor Connected Devices",
+      "description": "Unknown devices on your network can indicate neighbours or attackers using your Wi‑Fi.",
+      "impact": 8,
+      "ease": 6
+    }
+  },
+  {
+    "id": "net-13",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Do you change your Wi-Fi password after guests or contractors have used it for a long period?",
+    "options": [
+      { "text": "No, I keep the same Wi-Fi password for years.", "weight": 0 },
+      { "text": "Sometimes I change it, but not consistently.", "weight": 10 },
+      { "text": "Yes, I periodically rotate the Wi‑Fi password or use a guest network.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Rotate Wi-Fi Credentials Periodically",
+      "description": "Changing Wi‑Fi passwords reduces long‑term access from old devices and people.",
+      "impact": 7,
+      "ease": 6
+    }
+  },
+  {
+    "id": "net-14",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "How do you secure network equipment physically (router, switches) at home or office?",
+    "options": [
+      { "text": "They are easily accessible to anyone.", "weight": 0 },
+      { "text": "They are somewhat hidden but not locked.", "weight": 10 },
+      { "text": "They are placed in locations with limited access and clear labelling.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Protect Network Hardware Physically",
+      "description": "Physical access to network devices can allow resets or tampering. Place them out of easy reach.",
+      "impact": 7,
+      "ease": 7
+    }
+  },
+  {
+    "id": "net-15",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Do you avoid using public Wi-Fi for work-related confidential documents?",
+    "options": [
+      { "text": "No, I often work on confidential items over public Wi-Fi.", "weight": 0 },
+      { "text": "I try to avoid it but sometimes must.", "weight": 10 },
+      { "text": "I use VPN or mobile hotspots for confidential work instead of open Wi-Fi.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Protect Work Data on the Go",
+      "description": "Use secure channels like VPN or personal hotspots when handling confidential documents.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "net-16",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Do you hide your Wi-Fi network name (SSID) to reduce casual discovery?",
+    "options": [
+      { "text": "No, SSID is fully visible.", "weight": 0 },
+      { "text": "I have considered it but not changed it.", "weight": 10 },
+      { "text": "Yes, or I use a non-identifying SSID that reveals nothing personal.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Avoid Personal Information in SSID",
+      "description": "Even if not hidden, your Wi‑Fi name should not reveal your name or address.",
+      "impact": 6,
+      "ease": 8
+    }
+  },
+  {
+    "id": "net-17",
+    "domain": "Wi-Fi and Network Safety",
+    "text": "Do you verify the legitimacy of public Wi-Fi hotspots before connecting (e.g., at hotels or cafes)?",
+    "options": [
+      { "text": "No, I just connect to the strongest or most obvious network.", "weight": 0 },
+      { "text": "Sometimes I ask staff or check signage.", "weight": 10 },
+      { "text": "I always confirm the exact network name with staff and avoid lookalike networks.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Confirm Public Wi-Fi Names",
+      "description": "Rogue hotspots mimic real names. Confirm details with staff before connecting.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+
+  {
+    "id": "perm-1",
+    "domain": "App and Account Permissions",
+    "text": "Where do you primarily install apps from on your phone and computer?",
+    "options": [
+      { "text": "From any website or store I find online.", "weight": 0 },
+      { "text": "Mostly official stores, but I sometimes sideload.", "weight": 10 },
+      { "text": "Only official app stores or trusted repositories.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Stick to Official App Sources",
+      "description": "Untrusted sources can bundle malware with apps. Use official stores whenever possible.",
+      "impact": 10,
+      "ease": 8
+    }
+  },
+  {
+    "id": "perm-2",
+    "domain": "App and Account Permissions",
+    "text": "How often do you review app permissions (camera, microphone, location, contacts)?",
+    "options": [
+      { "text": "Never; I accept whatever is requested.", "weight": 0 },
+      { "text": "Occasionally, when something seems invasive.", "weight": 10 },
+      { "text": "Regularly, revoking permissions that are not necessary.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Audit App Permissions Regularly",
+      "description": "Apps often request more access than needed. Remove permissions they don't truly require.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "perm-3",
+    "domain": "App and Account Permissions",
+    "text": "Do you grant 'always-on' location access to apps that do not obviously need it?",
+    "options": [
+      { "text": "Yes, I usually allow it when asked.", "weight": 0 },
+      { "text": "Sometimes, if I think it might be useful.", "weight": 10 },
+      { "text": "No, I prefer 'while in use' or deny location when not needed.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Restrict Background Location Access",
+      "description": "Limit continuous location tracking to maps and a few essential apps only.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "perm-4",
+    "domain": "App and Account Permissions",
+    "text": "How do you handle requests for camera and microphone access?",
+    "options": [
+      { "text": "I usually tap 'Allow' without thinking.", "weight": 0 },
+      { "text": "I sometimes deny access if it feels unnecessary.", "weight": 10 },
+      { "text": "I allow access only when essential and revoke it afterward if possible.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Be Selective With Camera/Mic Access",
+      "description": "Unnecessary access can allow apps to listen or watch without your knowledge.",
+      "impact": 9,
+      "ease": 8
+    }
+  },
+  {
+    "id": "perm-5",
+    "domain": "App and Account Permissions",
+    "text": "Do you review which apps have access to your contacts, calendar, and files?",
+    "options": [
+      { "text": "No, I haven't checked this.", "weight": 0 },
+      { "text": "I have looked once or twice.", "weight": 10 },
+      { "text": "I periodically review and revoke access for non-essential apps.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Limit Access to Personal Data",
+      "description": "Contacts and calendar data can be used for spam or targeted phishing. Only trusted apps should see them.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "perm-6",
+    "domain": "App and Account Permissions",
+    "text": "How do you treat 'Sign in with Google/Apple/Facebook' permissions for third-party apps?",
+    "options": [
+      { "text": "I grant all requested permissions to sign in quickly.", "weight": 0 },
+      { "text": "I sometimes customize permissions if possible.", "weight": 10 },
+      { "text": "I minimize requested scopes and periodically revoke access for unused apps.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Control Third-Party Access via Single Sign-On",
+      "description": "Check what data an app can access via your SSO provider and revoke it if not needed.",
+      "impact": 8,
+      "ease": 7
+    }
+  },
+  {
+    "id": "perm-7",
+    "domain": "App and Account Permissions",
+    "text": "Do you keep track of which apps or services have 'admin' or elevated privileges on your devices?",
+    "options": [
+      { "text": "No, I do not track admin-level permissions.", "weight": 0 },
+      { "text": "I have a rough idea but haven't reviewed recently.", "weight": 10 },
+      { "text": "I actively review and restrict admin privileges to the minimum necessary.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Restrict Admin Privileges",
+      "description": "Only a few trusted tools should have admin rights. Extra privileges increase potential damage.",
+      "impact": 9,
+      "ease": 6
+    }
+  },
+  {
+    "id": "perm-8",
+    "domain": "App and Account Permissions",
+    "text": "How do you handle permissions for browser extensions and plugins?",
+    "options": [
+      { "text": "I install many extensions and accept all permissions.", "weight": 0 },
+      { "text": "I use some extensions and skim their permissions.", "weight": 10 },
+      { "text": "I install few, well-reviewed extensions and review what they can access.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Limit Powerful Browser Extensions",
+      "description": "Extensions can read everything in your browser. Keep them few and trustworthy.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "perm-9",
+    "domain": "App and Account Permissions",
+    "text": "Do you uninstall or revoke access for apps you no longer use?",
+    "options": [
+      { "text": "No, unused apps remain installed indefinitely.", "weight": 0 },
+      { "text": "Sometimes I clean them up when storage is low.", "weight": 10 },
+      { "text": "I regularly uninstall unused apps to reduce attack surface.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Remove Unused Apps",
+      "description": "Every extra app is another potential vulnerability. Delete what you do not use.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "perm-10",
+    "domain": "App and Account Permissions",
+    "text": "How do you approach app reviews and ratings before installing?",
+    "options": [
+      { "text": "I rarely check reviews or publisher details.", "weight": 0 },
+      { "text": "I glance at ratings but not detailed reviews.", "weight": 10 },
+      { "text": "I check ratings, reviews, and the developer's reputation.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Check Developer Reputation",
+      "description": "Reviews and publisher info help you avoid malicious or low‑quality apps.",
+      "impact": 7,
+      "ease": 8
+    }
+  },
+  {
+    "id": "perm-11",
+    "domain": "App and Account Permissions",
+    "text": "Do you allow apps to run in the background with broad access when not in use?",
+    "options": [
+      { "text": "Yes, most apps run freely in the background.", "weight": 0 },
+      { "text": "I sometimes limit background activity for battery reasons.", "weight": 10 },
+      { "text": "I actively limit background access except where clearly needed.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Constrain Background App Activity",
+      "description": "Limiting background access reduces data collection and potential misuse.",
+      "impact": 7,
+      "ease": 7
+    }
+  },
+  {
+    "id": "perm-12",
+    "domain": "App and Account Permissions",
+    "text": "Do you use app permission 'quick toggles' (e.g., temporary allow) when possible?",
+    "options": [
+      { "text": "No, I either permanently allow or deny.", "weight": 0 },
+      { "text": "Sometimes I use them when prompted.", "weight": 10 },
+      { "text": "I prefer temporary permissions for one-time tasks.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Use Temporary Permissions",
+      "description": "Granting one‑time access limits long‑term exposure if an app misbehaves later.",
+      "impact": 7,
+      "ease": 8
+    }
+  },
+  {
+    "id": "perm-13",
+    "domain": "App and Account Permissions",
+    "text": "Do you regularly sign out of apps and web sessions on shared or public devices?",
+    "options": [
+      { "text": "No, I rely on the app or browser to time out.", "weight": 0 },
+      { "text": "I sometimes sign out manually.", "weight": 10 },
+      { "text": "I always log out and clear data after using shared devices.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Log Out on Shared Devices",
+      "description": "Open sessions can be hijacked. Logging out reduces this risk significantly.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "perm-14",
+    "domain": "App and Account Permissions",
+    "text": "Do you review security settings in major cloud accounts (Google, Microsoft, Apple) that manage app access?",
+    "options": [
+      { "text": "No, I have never reviewed them.", "weight": 0 },
+      { "text": "I have looked once or twice.", "weight": 10 },
+      { "text": "I regularly review connected apps, devices, and sessions.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Audit Cloud Account Security Dashboards",
+      "description": "Major providers show which apps and devices access your data. Clean up anything unnecessary.",
+      "impact": 9,
+      "ease": 7
+    }
+  },
+  {
+    "id": "perm-15",
+    "domain": "App and Account Permissions",
+    "text": "Do you understand what data is collected by analytics and tracking permissions you grant to apps?",
+    "options": [
+      { "text": "No, I usually ignore these notices.", "weight": 0 },
+      { "text": "I skim privacy notices but do not change behaviour.", "weight": 10 },
+      { "text": "I review privacy options and opt out of non-essential tracking where possible.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Manage Analytics and Tracking",
+      "description": "Reduce unnecessary data collection by turning off optional tracking in app settings.",
+      "impact": 7,
+      "ease": 7
+    }
+  },
+  {
+    "id": "perm-16",
+    "domain": "App and Account Permissions",
+    "text": "How do you handle permission requests from browser-based web apps?",
+    "options": [
+      { "text": "I accept pop-ups for notifications, camera, or location without much thought.", "weight": 0 },
+      { "text": "I sometimes deny permissions that seem excessive.", "weight": 10 },
+      { "text": "I carefully review each request and only grant what is necessary.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Apply the Same Discipline to Web App Permissions",
+      "description": "Browser permissions are as powerful as native app permissions. Approve only what you truly need.",
+      "impact": 8,
+      "ease": 8
+    }
+  },
+  {
+    "id": "perm-17",
+    "domain": "App and Account Permissions",
+    "text": "Do you periodically export or review account activity logs from critical cloud services (storage, password manager, finance apps)?",
+    "options": [
+      { "text": "No, I never look at these logs.", "weight": 0 },
+      { "text": "Occasionally, if I suspect an issue.", "weight": 10 },
+      { "text": "Yes, I periodically review logs for unusual access or operations.", "weight": 20 }
+    ],
+    "recommendation": {
+      "title": "Review Critical App Activity Logs",
+      "description": "Logs help you detect unauthorized usage in storage, finance, or password tools early.",
+      "impact": 9,
+      "ease": 6
+    }
+  }
+]
