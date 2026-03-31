@@ -561,7 +561,7 @@ export default function Home() {
       {/* =========================================
           SITE FOOTER
           ========================================= */}
-      <footer className="relative z-20 w-full max-w-[1440px] mx-auto px-8 lg:px-16 mt-32 border-t border-white/5 pt-20">
+      {/* <footer className="relative z-20 w-full max-w-[1440px] mx-auto px-8 lg:px-16 mt-32 border-t border-white/5 pt-20">
         
         <div className="grid grid-cols-2 lg:grid-cols-6 gap-12 mb-24">
            
@@ -615,13 +615,13 @@ export default function Home() {
            </div>
         </div>
 
-      </footer>
+      </footer> */}
 
       {/* BACKGROUND NEON GLOWS FOR FOOTER AREA */}
-      <div className="absolute bottom-0 right-[-5%] w-[40vw] h-[40vw] bg-[#39ff14] rounded-full blur-[160px] opacity-[0.1] pointer-events-none mix-blend-screen"></div>
+      {/* <div className="absolute bottom-0 right-[-5%] w-[40vw] h-[40vw] bg-[#39ff14] rounded-full blur-[160px] opacity-[0.1] pointer-events-none mix-blend-screen"></div> */}
 
       {/* BOTTOM RIGHT STATS (Exactly placed) */}
-      <div className="fixed bottom-12 right-12 lg:right-24 hidden md:flex items-center gap-8 z-[50] bg-black/40 px-6 py-4 rounded-full backdrop-blur-md border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+      {/* <div className="fixed bottom-12 right-12 lg:right-24 hidden md:flex items-center gap-8 z-[50] bg-black/40 px-6 py-4 rounded-full backdrop-blur-md border border-white/5 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
          <div className="flex items-baseline gap-2">
            <span className={`${bruno.className} text-white text-2xl lg:text-3xl font-bold tracking-wider drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]`}>0</span> 
            <span className="text-gray-400 text-[10px] font-semibold tracking-[0.2em] uppercase ml-1">Data Stored</span>
@@ -631,7 +631,7 @@ export default function Home() {
            <span className={`${bruno.className} text-white text-2xl lg:text-3xl font-bold tracking-wider drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]`}>100%</span> 
            <span className="text-gray-400 text-[10px] font-semibold tracking-[0.2em] uppercase ml-1">Private</span>
          </div>
-      </div>
+      </div> */}
 
     </main>
   );
