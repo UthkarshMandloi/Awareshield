@@ -100,17 +100,15 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
   };
 
   return (
-    // Added: max-h-[90vh] flex flex-col to keep the box within screen limits
-    <div className="w-full max-w-3xl mx-auto p-6 md:p-8 lg:p-10 bg-[#0c0c0c]/80 backdrop-blur-xl rounded-3xl border border-[#39ff14]/20 shadow-[0_0_50px_rgba(57,255,20,0.1)] relative overflow-hidden group max-h-[90vh] flex flex-col">
+    <div className="w-full max-w-3xl mx-auto p-6 md:p-8 lg:p-10 bg-[#0c0c0c]/80 backdrop-blur-xl rounded-3xl border border-[#39ff14]/20 shadow-[0_0_50px_rgba(57,255,20,0.1)] relative overflow-hidden group">
       
       {/* Subtle structural inner glow */}
       <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_50px_rgba(255,255,255,0.02)] pointer-events-none z-0"></div>
 
-      {/* Added: flex flex-col h-full overflow-hidden to child container */}
-      <div className="relative z-10 flex flex-col h-full overflow-hidden">
+      <div className="relative z-10">
         
-        {/* Progress Bar Header - Added shrink-0 */}
-        <div className="mb-6 shrink-0">
+        {/* Progress Bar Header */}
+        <div className="mb-6">
           <div className="flex justify-between text-xs text-gray-400 mb-3 font-mono tracking-widest uppercase items-center">
             <span className="text-[#39ff14] drop-shadow-[0_0_5px_#39ff14] bg-[#39ff14]/10 px-3 py-1 rounded-full border border-[#39ff14]/30">{getTranslation(lang, currentQuestion.domain) || currentQuestion.domain}</span>
             <span className="bg-black/50 px-3 py-1 rounded-full border border-white/10">{currentIndex + 1} / {questions.length}</span>
@@ -123,13 +121,13 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
           </div>
         </div>
 
-        {/* Question Area - Added shrink-0 and reduced margin bottom */}
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-6 shrink-0 tracking-wide leading-snug drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+        {/* Question Area */}
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-6 tracking-wide leading-snug drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
           {currentQuestion.text}
         </h2>
 
-        {/* Options - Added flex-1, overflow-y-auto, custom scrollbar styles, and spacing */}
-        <div className="space-y-3 mb-6 flex-1 overflow-y-auto pr-2 pb-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#39ff14]/20 hover:[&::-webkit-scrollbar-thumb]:bg-[#39ff14]/50 [&::-webkit-scrollbar-thumb]:rounded-full transition-colors">
+        {/* Options */}
+        <div className="space-y-3 mb-6">
           {currentQuestion.options.map((option, index) => {
             const isSelected = selectedWeight === option.weight;
             return (
@@ -154,8 +152,8 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
           })}
         </div>
 
-        {/* Action Area - Added shrink-0 */}
-        <div className="flex justify-between pt-5 border-t border-white/10 items-center shrink-0">
+        {/* Action Area */}
+        <div className="flex justify-between pt-5 border-t border-white/10 items-center">
           <button
             onClick={handleSkip}
             className="px-4 md:px-6 py-3 md:py-4 rounded-full font-bold tracking-[0.1em] uppercase text-[10px] text-gray-500 hover:text-white transition-all duration-300"
