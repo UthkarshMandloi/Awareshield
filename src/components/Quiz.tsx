@@ -23,6 +23,8 @@ export function getTranslation(lang: string, key: string): string {
 }
 
 function getRandomQuestions(bank: Question[]): Question[] {
+  if (!bank || !Array.isArray(bank) || bank.length === 0) return [];
+
   const selected: Question[] = [];
   
   // Dynamically extract domains to support translated domain names automatically
@@ -45,10 +47,10 @@ function getRandomQuestions(bank: Question[]): Question[] {
 interface QuizProps {
   onComplete: (responses: UserResponse[]) => void;
   questionsBank: Question[];
-  lang: string;
+  lang?: string;
 }
 
-export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
+export default function Quiz({ onComplete, questionsBank = [], lang = 'en' }: QuizProps) {
   // Compute exactly once on mount so it doesn't shuffle upon every answer click
   const questions = useMemo(() => getRandomQuestions(questionsBank), [questionsBank]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -56,6 +58,16 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
   const [selectedWeight, setSelectedWeight] = useState<number | null>(null);
 
   const currentQuestion = questions[currentIndex];
+
+  // Safety check: Prevent crash if questions haven't loaded yet or bank is empty
+  if (!questions || questions.length === 0 || !currentQuestion) {
+    return (
+      <div className="w-full max-w-3xl mx-auto p-10 bg-[#0c0c0c]/80 backdrop-blur-xl rounded-3xl border border-white/10 flex items-center justify-center min-h-[300px]">
+        <p className="text-[#39ff14] animate-pulse tracking-widest text-sm font-mono uppercase">Initializing Audit...</p>
+      </div>
+    );
+  }
+
   const progressPercentage = ((currentIndex + 1) / questions.length) * 100;
 
   const handleOptionSelect = (weight: number) => {
@@ -100,18 +112,23 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6 md:p-8 lg:p-10 bg-[#0c0c0c]/80 backdrop-blur-xl rounded-3xl border border-[#39ff14]/20 shadow-[0_0_50px_rgba(57,255,20,0.1)] relative overflow-hidden group">
+    // Restricted height to 90vh and made it a flex container to stop page scroll
+    <div className="w-full max-w-3xl mx-auto p-6 md:p-8 lg:p-10 bg-[#0c0c0c]/80 backdrop-blur-xl rounded-3xl border border-[#39ff14]/20 shadow-[0_0_50px_rgba(57,255,20,0.1)] relative overflow-hidden group max-h-[90vh] flex flex-col">
       
       {/* Subtle structural inner glow */}
       <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_50px_rgba(255,255,255,0.02)] pointer-events-none z-0"></div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col h-full overflow-hidden">
         
-        {/* Progress Bar Header */}
-        <div className="mb-6">
+        {/* Progress Bar Header - Prevent shrinking */}
+        <div className="mb-6 shrink-0">
           <div className="flex justify-between text-xs text-gray-400 mb-3 font-mono tracking-widest uppercase items-center">
-            <span className="text-[#39ff14] drop-shadow-[0_0_5px_#39ff14] bg-[#39ff14]/10 px-3 py-1 rounded-full border border-[#39ff14]/30">{getTranslation(lang, currentQuestion.domain) || currentQuestion.domain}</span>
-            <span className="bg-black/50 px-3 py-1 rounded-full border border-white/10">{currentIndex + 1} / {questions.length}</span>
+            <span className="text-[#39ff14] drop-shadow-[0_0_5px_#39ff14] bg-[#39ff14]/10 px-3 py-1 rounded-full border border-[#39ff14]/30">
+              {getTranslation(lang, currentQuestion.domain) || currentQuestion.domain}
+            </span>
+            <span className="bg-black/50 px-3 py-1 rounded-full border border-white/10">
+              {currentIndex + 1} / {questions.length}
+            </span>
           </div>
           <div className="w-full bg-[#111] rounded-full h-2 border border-white/5 overflow-hidden">
             <div 
@@ -121,14 +138,14 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
           </div>
         </div>
 
-        {/* Question Area */}
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-6 tracking-wide leading-snug drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+        {/* Question Area - Prevent shrinking */}
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-6 shrink-0 tracking-wide leading-snug drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
           {currentQuestion.text}
         </h2>
 
-        {/* Options */}
-        <div className="space-y-3 mb-6">
-          {currentQuestion.options.map((option, index) => {
+        {/* Options - This area scrolls internally, BUT the scrollbar is visually hidden */}
+        <div className="space-y-3 mb-6 flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          {currentQuestion.options?.map((option, index) => {
             const isSelected = selectedWeight === option.weight;
             return (
               <button
@@ -152,8 +169,8 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
           })}
         </div>
 
-        {/* Action Area */}
-        <div className="flex justify-between pt-5 border-t border-white/10 items-center">
+        {/* Action Area - Prevent shrinking */}
+        <div className="flex justify-between pt-5 border-t border-white/10 items-center shrink-0">
           <button
             onClick={handleSkip}
             className="px-4 md:px-6 py-3 md:py-4 rounded-full font-bold tracking-[0.1em] uppercase text-[10px] text-gray-500 hover:text-white transition-all duration-300"
