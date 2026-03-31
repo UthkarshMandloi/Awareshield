@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Awareshield Guard</title>
+    <style>
+        body {
+            width: 300px;
+            background: #050505;
+            color: #fff;
+            padding: 16px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .logo {
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            color: #39ff14;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .status {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background: #39ff14;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 0 15px rgba(57,255,20,0.3);
+            width: 100%;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 25px rgba(57,255,20,0.5);
+            background: #b0ff9c;
+        }
+
+        .password-box {
+            background: #111;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #39ff14;
+            word-break: break-all;
+        }
+
+        .privacy-stats {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 0.8rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Awareshield</div>
+    </div>
+    
+    <div class="status">🛡️ Protection Active (Local-Only)</div>
+    
+    <button id="generate-btn" class="btn">Generate Strong Password</button>
+    <div id="password-output" class="password-box">••••••••••••••••</div>
+
+    <div class="privacy-stats">
+        <div>🔒 Zero Data Stored</div>
+        <div>🌐 Link Safe Active</div>
+        <div>🔍 Password Guardian Live</div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

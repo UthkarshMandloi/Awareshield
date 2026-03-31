@@ -25,10 +25,6 @@ export default function NavBar() {
 
       {/* Right Nav Actions */}
       <div className="hidden md:flex items-center gap-4 relative z-20">
-        <div className="flex items-center rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 hover:border-[#39ff14]/60 transition-colors shadow-[0_0_10px_rgba(0,0,0,0.5)] group">
-          <svg className="w-4 h-4 text-gray-400 group-hover:text-[#39ff14] transition-colors mr-3 drop-shadow-[0_0_5px_#39ff14]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-          <input type="text" placeholder="Search" className="bg-transparent border-none outline-none text-xs text-white w-24 placeholder-gray-500 font-light tracking-wide focus:w-32 transition-all" />
-        </div>
         <Link href="/audit" className="px-5 py-2.5 rounded-full bg-[#39ff14] hover:bg-white hover:text-black text-black text-xs font-bold tracking-[0.15em] transition-all shadow-[0_0_25px_rgba(57,255,20,0.6)] hover:shadow-[0_0_40px_rgba(255,255,255,0.8)]">
           GET STARTED
         </Link>

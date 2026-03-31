@@ -5,7 +5,7 @@ export async function loadQuestions(lang: string): Promise<Question[]> {
   const url = isEnglish ? '/data/questions.json' : `/data/questions_${lang}.json`;
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) {
       console.warn(`Could not load questions for language ${lang}, falling back to English.`);
       const fallbackRes = await fetch('/data/questions.json');

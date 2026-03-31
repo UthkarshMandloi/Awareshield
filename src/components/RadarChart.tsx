@@ -21,25 +21,28 @@ ChartJS.register(
   Legend
 );
 
+import { getTranslation } from '../utils/i18n';
+
 interface RadarChartProps {
   domainScores: Record<string, number>;
+  lang: string;
+  isPrintTheme?: boolean;
 }
 
-export default function RadarChart({ domainScores }: RadarChartProps) {
+export default function RadarChart({ domainScores, lang, isPrintTheme = false }: RadarChartProps) {
   const data = {
-    // The 6 domains become the points on our spider web
-    labels: Object.keys(domainScores),
+    labels: Object.keys(domainScores).map(domain => getTranslation(lang, domain) || domain),
     datasets: [
       {
         label: 'Domain Score',
         data: Object.values(domainScores),
-        backgroundColor: 'rgba(57, 255, 20, 0.15)', // Faded neon green fill
-        borderColor: 'rgba(57, 255, 20, 1)',       // Solid neon green border
-        pointBackgroundColor: '#070b09',           // Dark center dot
-        pointBorderColor: 'rgba(57, 255, 20, 1)',  // Neon green dot border
-        pointHoverBackgroundColor: '#fff',         // White dot on hover
-        pointHoverBorderColor: 'rgba(57, 255, 20, 1)',
-        borderWidth: 2,
+        backgroundColor: isPrintTheme ? 'rgba(0, 0, 0, 0.1)' : 'rgba(57, 255, 20, 0.15)',
+        borderColor: isPrintTheme ? '#000000' : 'rgba(57, 255, 20, 1)',
+        pointBackgroundColor: isPrintTheme ? '#ffffff' : '#070b09',
+        pointBorderColor: isPrintTheme ? '#000000' : 'rgba(57, 255, 20, 1)',
+        pointHoverBackgroundColor: isPrintTheme ? '#000000' : '#fff',
+        pointHoverBorderColor: isPrintTheme ? '#000000' : 'rgba(57, 255, 20, 1)',
+        borderWidth: isPrintTheme ? 3 : 2,
       },
     ],
   };
@@ -47,14 +50,14 @@ export default function RadarChart({ domainScores }: RadarChartProps) {
   const options = {
     scales: {
       r: {
-        angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
-        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+        angleLines: { color: isPrintTheme ? 'rgba(0,0,0,0.2)' : 'rgba(255, 255, 255, 0.1)' },
+        grid: { color: isPrintTheme ? 'rgba(0,0,0,0.2)' : 'rgba(255, 255, 255, 0.1)' },
         pointLabels: {
-          color: 'rgba(255, 255, 255, 0.8)',
+          color: isPrintTheme ? '#000000' : 'rgba(255, 255, 255, 0.8)',
           font: { size: 12, family: 'sans-serif', weight: 'bold' as const },
         },
         ticks: {
-          display: false, // Hides the 0-100 numbers along the web lines for a cleaner look
+          display: false,
           min: 0,
           max: 100,
           stepSize: 20,
@@ -62,12 +65,12 @@ export default function RadarChart({ domainScores }: RadarChartProps) {
       },
     },
     plugins: {
-      legend: { display: false }, // Hides the dataset label at the top
+      legend: { display: false },
       tooltip: {
-        backgroundColor: 'rgba(0, 0, 0, 0.9)',
-        titleColor: '#39ff14',
-        bodyColor: '#fff',
-        borderColor: '#39ff14',
+        backgroundColor: isPrintTheme ? '#fff' : 'rgba(0, 0, 0, 0.9)',
+        titleColor: isPrintTheme ? '#000' : '#39ff14',
+        bodyColor: isPrintTheme ? '#333' : '#fff',
+        borderColor: isPrintTheme ? '#000' : '#39ff14',
         borderWidth: 1,
       }
     },

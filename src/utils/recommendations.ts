@@ -22,3 +22,28 @@ export function getTopRecommendations(responses: UserResponse[], questionsBank: 
   // 4. Return only the Top 5
   return actionableItems.slice(0, 5);
 }
+
+// Strictly for the PDF Report Layout
+export function getGroupedPdfRecommendations(responses: UserResponse[], questionsBank: Question[]) {
+  const critical: Recommendation[] = [];
+  const suggested: Recommendation[] = [];
+
+  responses.forEach(r => {
+    // Perfect score (20), do nothing
+    if (r.score >= 20) return;
+
+    const parentQuestion = questionsBank.find(q => q.id === r.questionId);
+    if (!parentQuestion || !parentQuestion.recommendation) return;
+
+    // Worst score means Critical Attention Needed
+    if (r.score === 0) {
+      critical.push(parentQuestion.recommendation);
+    } 
+    // Mediocre scores mean Suggested to Practice
+    else if (r.score > 0 && r.score < 20) {
+      suggested.push(parentQuestion.recommendation);
+    }
+  });
+
+  return { critical, suggested };
+}

@@ -8,9 +8,10 @@ interface BadgeCanvasProps {
   overallScore: number;
   badgeTier: string;
   lang: string;
+  masteredDomain: string;
 }
 
-export default function BadgeCanvas({ overallScore, badgeTier, lang }: BadgeCanvasProps) {
+export default function BadgeCanvas({ overallScore, badgeTier, lang, masteredDomain }: BadgeCanvasProps) {
   const [isGenerating, setIsGenerating] = useState(false);
 
   // We change the badge accent color based on their tier!
@@ -34,7 +35,6 @@ export default function BadgeCanvas({ overallScore, badgeTier, lang }: BadgeCanv
     
     if (element) {
       try {
-        // html-to-image is much more reliable for CSS filters/transforms than html2canvas
         const dataUrl = await toPng(element, { 
           cacheBust: true, 
           pixelRatio: 2,
@@ -48,7 +48,7 @@ export default function BadgeCanvas({ overallScore, badgeTier, lang }: BadgeCanv
         
         // Create a fake link to trigger the download
         const link = document.createElement('a');
-        link.download = `CyberScore-${badgeTier.replace(/\s+/g, '')}.png`;
+        link.download = `Awareshield-${badgeTier.replace(/\s+/g, '')}.png`;
         link.href = dataUrl;
         link.click();
       } catch (error) {
@@ -59,20 +59,71 @@ export default function BadgeCanvas({ overallScore, badgeTier, lang }: BadgeCanv
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-transparent w-full pb-6 pt-2">
-      <div 
-        id="badge-capture-area" 
-        className={`w-72 h-72 flex flex-col items-center justify-center bg-[#050505] rounded-3xl border-2 ${borderColor} ${glowEffect} p-6 relative overflow-hidden`}
-      >
-        <div className={`absolute -top-10 -right-10 w-32 h-32 bg-current opacity-15 rounded-full blur-2xl ${tierColor}`}></div>
-        <p className="text-gray-400 text-sm font-mono tracking-widest mb-2 z-10">CYBERSCORE AUDIT</p>
-        <div className="text-7xl font-bold text-white z-10 my-2 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
-          {overallScore}
+    <div className="flex flex-col items-center justify-center bg-transparent w-full pb-6 pt-4">
+      {/* Container carefully sized to fit the badge + ribbon drop shadows without cropping */}
+      <div id="badge-capture-area" className="w-[340px] h-[340px] relative flex flex-col items-center justify-center bg-[#050505]">
+        
+        {/* The Main Circular Medallion Coin Outer Base */}
+        <div 
+          className="w-[280px] h-[280px] rounded-full relative flex flex-col items-center justify-center z-10"
+          style={{
+             background: 'linear-gradient(135deg, #444 0%, #1a1a1a 50%, #030303 100%)',
+             boxShadow: '0 10px 30px rgba(0,0,0,0.9), inset 0 2px 3px rgba(255,255,255,0.4), inset 0 -4px 10px rgba(0,0,0,0.9)'
+          }}
+        >
+          {/* Inner Textured Core */}
+          <div 
+            className={`w-[250px] h-[250px] rounded-full border-[6px] flex flex-col items-center justify-center overflow-hidden relative shadow-[inset_0_20px_50px_rgba(0,0,0,0.9)] ${borderColor}`}
+            style={{
+               background: 'radial-gradient(circle at 50% 20%, #151515 0%, #000 100%)',
+            }}
+          >
+             {/* Neon internal core glow */}
+             <div className={`absolute top-0 left-0 right-0 h-[100px] ${tierColor} bg-current opacity-[0.15] blur-[30px]`}></div>
+             
+             {/* Top Arch Label */}
+             <div className="absolute top-6 left-1/2 -translate-x-1/2 w-48 border-b-2 border-white/10 pb-2.5 flex justify-center shadow-[0_2px_0_rgba(0,0,0,1)]">
+                 <span className="text-gray-300 font-bold tracking-[0.2em] text-[10px] uppercase shadow-black drop-shadow-[0_2px_3px_black]">Security Audit</span>
+             </div>
+
+             {/* Center Score Readout */}
+             <div className="mt-6 flex flex-col items-center relative z-20">
+                <span className={`text-[10px] font-black uppercase tracking-[0.4em] mb-0 ${tierColor} drop-shadow-[0_0_8px_currentColor]`}>
+                   {badgeTier === 'Good' ? 'EXCELLENT' : badgeTier}
+                </span>
+                <div className="text-[85px] leading-[1] font-black text-white drop-shadow-[0_10px_15px_rgba(0,0,0,0.8)] shadow-black">
+                  {overallScore}
+                </div>
+             </div>
+             
+             {/* Internal Label Bottom */}
+             <div className="absolute bottom-[28px] flex flex-col items-center w-full px-4 text-center">
+                 <span className="text-[9px] text-[#39ff14] font-bold uppercase tracking-[0.3em] opacity-80 shadow-black drop-shadow-[0_2px_2px_black]">Points / 100</span>
+                 {masteredDomain && (
+                   <span className="text-[6.5px] text-gray-300 mt-1.5 uppercase tracking-[0.2em] bg-black/50 px-2 py-0.5 rounded-full border border-white/5 truncate max-w-[180px]">
+                     ACHIEVEMENT: {getTranslation(lang, masteredDomain) || masteredDomain}
+                   </span>
+                 )}
+             </div>
+          </div>
         </div>
-        <div className={`text-lg font-bold uppercase tracking-[0.2em] z-10 ${tierColor} drop-shadow-[0_0_8px_currentColor]`}>
-          {badgeTier === 'Good' ? 'EXCELLENT' : badgeTier}
+
+        {/* The Bottom Ribbon overlapping the Coin directly - Completes the "Pin Badge" aesthetic */}
+        <div 
+          className="absolute bottom-6 z-20 w-[240px] py-4 rounded-xl border-t-[3px] border-b-2 border-r-[1px] border-l-[1px] flex items-center justify-center"
+          style={{
+             background: 'linear-gradient(180deg, #1c1c1c 0%, #0a0a0a 100%)',
+             borderColor: 'rgba(255,255,255,0.15) rgba(255,255,255,0.05) rgba(0,0,0,1) rgba(255,255,255,0.05)',
+             boxShadow: '0 15px 25px rgba(0,0,0,1), 0 5px 10px rgba(0,0,0,0.8), inset 0 2px 5px rgba(255,255,255,0.05)'
+          }}
+        >
+           <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-current to-transparent opacity-50 ${tierColor}`}></div>
+           <span className="text-white font-black uppercase tracking-[0.15em] text-[10px] flex items-center gap-2 drop-shadow-[0_2px_4px_black]">
+             <span className="text-[#39ff14] text-sm drop-shadow-[0_0_5px_currentColor]">🛡️</span>
+             VERIFIED BY AWARESHIELD
+           </span>
         </div>
-        <p className="text-gray-500 text-[10px] tracking-widest uppercase mt-8 z-10 border-t border-white/10 pt-2 w-full text-center">🛡️ Verified by CyberScore</p>
+
       </div>
 
       <button

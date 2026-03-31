@@ -3,11 +3,12 @@
 import { useState, useEffect, Suspense, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import { toPng } from 'html-to-image';
 
 import Quiz from '../../components/Quiz';
 import RadarChart from '../../components/RadarChart';
 import BadgeCanvas from '../../components/BadgeCanvas';
+import PrintableReport from '../../components/PrintableReport';
 import NavBar from '../../components/NavBar';
 import { UserResponse, Question } from '../../types';
 import { calculateScores } from '../../utils/scoring';
@@ -50,6 +51,7 @@ function AuditContent() {
   const [finalResults, setFinalResults] = useState<any>(null);
   const [topActions, setTopActions] = useState<any[]>([]);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const [auditResponses, setAuditResponses] = useState<UserResponse[]>([]);
 
   const reportRef = useRef<HTMLDivElement>(null);
 
@@ -59,6 +61,7 @@ function AuditContent() {
 
   const handleQuizComplete = (responses: UserResponse[]) => {
     const results = calculateScores(responses);
+    setAuditResponses(responses);
     setFinalResults(results);
     const actions = getTopRecommendations(responses, questionsBank || []);
     setTopActions(actions);
@@ -70,21 +73,23 @@ function AuditContent() {
     setIsGeneratingPdf(true);
 
     try {
-      // Create a temporary clone for high-res PDF rendering to avoid CSS filter bugs
-      const canvas = await html2canvas(reportRef.current, {
-        backgroundColor: '#050505',
-        scale: 2,
-        useCORS: true,
+      // Target the hidden PrintableReport specifically for PDF construction
+      const dataUrl = await toPng(reportRef.current, {
+        backgroundColor: '#ffffff',
+        pixelRatio: 2,
+        style: { margin: '0' }
       });
-
-      const imgData = canvas.toDataURL('image/png');
+      
       const pdf = new jsPDF('p', 'mm', 'a4');
-      
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save(`CyberSecurity_Audit_Report_${lang}.pdf`);
+      const img = new Image();
+      img.src = dataUrl;
+      await new Promise((resolve) => { img.onload = resolve; });
+      const pdfHeight = (img.height * pdfWidth) / img.width;
+      
+      pdf.addImage(dataUrl, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`Awareshield_Audit_Report_${lang}.pdf`);
     } catch (err) {
       console.error('PDF generation failed', err);
     }
@@ -104,7 +109,21 @@ function AuditContent() {
       {!isFinished ? (
         <Quiz onComplete={handleQuizComplete} questionsBank={questionsBank} lang={lang} />
       ) : (
-        <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-8" ref={reportRef}>
+        <>
+        {/* Hidden Monochromatic PDF-Optimized Report */}
+        <div style={{ position: 'absolute', top: '-15000px', left: '-15000px' }} className="print-only-container">
+          <div ref={reportRef}>
+            <PrintableReport 
+              responses={auditResponses} 
+              questionsBank={questionsBank} 
+              finalResults={finalResults} 
+              lang={lang} 
+            />
+          </div>
+        </div>
+
+        {/* Standard Web App Dashboard */}
+        <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
           
           {/* Left Column: Chart, Score, Character and Full Report Download */}
           <div className="flex-[3] flex flex-col gap-6">
@@ -112,7 +131,7 @@ function AuditContent() {
               <h2 className="text-2xl font-bold text-white mb-6 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">
                 {getTranslation(lang, 'posture')}
               </h2>
-              <RadarChart domainScores={finalResults.domainScores} />
+              <RadarChart domainScores={finalResults.domainScores} lang={lang} />
             </div>
 
             {/* Empty space filler for Score & Character Status */}
@@ -176,11 +195,13 @@ function AuditContent() {
                 overallScore={finalResults.overallScore} 
                 badgeTier={finalResults.badgeTier} 
                 lang={lang}
+                masteredDomain={finalResults.masteredDomain}
               />
             </div>
 
           </div>
         </div>
+        </>
       )}
     </div>
   );
@@ -200,13 +221,6 @@ export default function AuditPage() {
       <Suspense fallback={<div className="flex-1 flex items-center justify-center text-[#39ff14] tracking-widest animate-pulse">LOADING...</div>}>
         <AuditContent />
       </Suspense>
-
-      <style jsx global>{`
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(57, 255, 20, 0.3); border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(57, 255, 20, 0.6); }
-      `}</style>
     </main>
   );
 }

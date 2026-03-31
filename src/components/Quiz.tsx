@@ -4,31 +4,23 @@ import { useState, useMemo } from 'react';
 import { Question, UserResponse } from '../types';
 import { getTranslation } from '../utils/i18n';
 
-const TARGET_DOMAINS = [
-  "Password Habits",
-  "Device Security",
-  "Social Media Safety",
-  "Email and Phishing Awareness",
-  "Wi-Fi and Network Safety",
-  "App and Account Permissions"
-];
-
 function getRandomQuestions(bank: Question[]): Question[] {
   const selected: Question[] = [];
   
-  TARGET_DOMAINS.forEach(domain => {
+  // Dynamically extract domains to support translated domain names automatically
+  const uniqueDomains = Array.from(new Set(bank.map(q => q.domain)));
+  
+  uniqueDomains.forEach(domain => {
     // Filter questions belonging to this domain
     const domainQuestions = bank.filter(q => q.domain === domain);
     
     // Shuffle the array
     const shuffled = [...domainQuestions].sort(() => 0.5 - Math.random());
     
-    // Take up to 5, if there are less than 5 it will just take what's available
+    // Take up to 5
     selected.push(...shuffled.slice(0, 5));
   });
   
-  // Return the combined array, optionally shuffled again so domains aren't clustered together
-  // Leaving domains clustered or shuffled is a design choice. Let's shuffle the final list.
   return selected.sort(() => 0.5 - Math.random());
 }
 
@@ -74,6 +66,21 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
     }
   };
 
+  const handleSkip = () => {
+    // Generate 0-score responses for all remaining questions
+    const remainingResponses = questions.slice(currentIndex).map(q => ({
+      questionId: q.id,
+      domain: q.domain,
+      score: 0 // Assume worst score for skipped questions to visualize report
+    }));
+
+    // Merge current responses with filled remaining ones
+    const finalResponses = [...responses, ...remainingResponses];
+    
+    // Complete the quiz immediately
+    onComplete(finalResponses);
+  };
+
   return (
     <div className="w-full max-w-3xl mx-auto p-8 lg:p-12 bg-[#0c0c0c]/80 backdrop-blur-xl rounded-3xl border border-[#39ff14]/20 shadow-[0_0_50px_rgba(57,255,20,0.1)] relative overflow-hidden group">
       
@@ -84,7 +91,7 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
         {/* Progress Bar Header */}
         <div className="mb-10">
           <div className="flex justify-between text-xs text-gray-400 mb-3 font-mono tracking-widest uppercase items-center">
-            <span className="text-[#39ff14] drop-shadow-[0_0_5px_#39ff14] bg-[#39ff14]/10 px-3 py-1 rounded-full border border-[#39ff14]/30">{currentQuestion.domain}</span>
+            <span className="text-[#39ff14] drop-shadow-[0_0_5px_#39ff14] bg-[#39ff14]/10 px-3 py-1 rounded-full border border-[#39ff14]/30">{getTranslation(lang, currentQuestion.domain) || currentQuestion.domain}</span>
             <span className="bg-black/50 px-3 py-1 rounded-full border border-white/10">{currentIndex + 1} / {questions.length}</span>
           </div>
           <div className="w-full bg-[#111] rounded-full h-2 border border-white/5 overflow-hidden">
@@ -127,7 +134,14 @@ export default function Quiz({ onComplete, questionsBank, lang }: QuizProps) {
         </div>
 
         {/* Action Area */}
-        <div className="flex justify-end pt-6 border-t border-white/10">
+        <div className="flex justify-between pt-6 border-t border-white/10 items-center">
+          <button
+            onClick={handleSkip}
+            className="px-6 py-4 rounded-full font-bold tracking-[0.1em] uppercase text-[10px] text-gray-500 hover:text-white transition-all duration-300"
+          >
+            {getTranslation(lang, 'skip') || "SKIP AUDIT"}
+          </button>
+          
           <button
             onClick={handleNext}
             disabled={selectedWeight === null}
