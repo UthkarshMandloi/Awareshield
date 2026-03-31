@@ -1,40 +1,32 @@
 import React from 'react';
 
-// --- Localized Dependencies for Canvas Compilation ---
-export interface Question {
-  id: string;
-  domain: string;
-  text: string;
-  options: { text: string; weight: number }[];
-}
+// ============================================================================
+// REMOVE THESE MOCKS AND UNCOMMENT YOUR REAL IMPORTS IN YOUR LOCAL PROJECT
+// ============================================================================
+// import { UserResponse, Question } from '../types';
+// import { getGroupedPdfRecommendations } from '../utils/recommendations';
+// import { getTranslation } from '../utils/i18n';
+// import RadarChart from './RadarChart';
 
-export interface UserResponse {
-  questionId: string;
-  domain: string;
-  score: number;
-}
-
+// --- MOCK DATA FOR PREVIEW COMPILATION ONLY ---
+export interface Question { id: string; domain: string; text: string; options: any[]; }
+export interface UserResponse { questionId: string; domain: string; score: number; }
 const getTranslation = (lang: string, key: string) => key;
-
-const getGroupedPdfRecommendations = (responses: UserResponse[], questionsBank: Question[]) => {
-  // Mocked for Canvas preview
-  return {
-    critical: [
-      { title: 'Enable Multi-Factor Authentication', description: 'Immediate action required to secure admin accounts against unauthorized access.' },
-      { title: 'Patch Vulnerable Software', description: 'Update critical systems to prevent exploitation of known vulnerabilities.' }
-    ],
-    suggested: [
-      { title: 'Regular Phishing Training', description: 'Conduct monthly security awareness training for all staff members.' }
-    ]
-  };
-};
-
+const getGroupedPdfRecommendations = (responses: any, bank: any) => ({
+  critical: [
+    { title: 'Enable Multi-Factor Authentication', description: 'Immediate action required to secure admin accounts.' },
+    { title: 'Patch Vulnerable Software', description: 'Update critical systems to prevent exploitation.' }
+  ],
+  suggested: [
+    { title: 'Regular Phishing Training', description: 'Conduct monthly security awareness training.' }
+  ]
+});
 const RadarChart = ({ domainScores, lang, isPrintTheme }: any) => (
   <div className="w-full h-64 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500 font-mono border-2 border-dashed border-gray-300">
     [Radar Chart Visualization Placeholder]
   </div>
 );
-// ---------------------------------------------------
+// ============================================================================
 
 interface PrintableReportProps {
   responses: UserResponse[];
@@ -45,6 +37,7 @@ interface PrintableReportProps {
 
 export default function PrintableReport({ responses, questionsBank, finalResults, lang }: PrintableReportProps) {
   const { critical, suggested } = getGroupedPdfRecommendations(responses, questionsBank);
+  // Default values added safely for the preview environment
   const { domainScores = { Security: 85, Privacy: 45, Infrastructure: 20 }, overallScore = 65 } = finalResults || {};
 
   // Derive domain-specific badges
@@ -99,7 +92,7 @@ export default function PrintableReport({ responses, questionsBank, finalResults
                   <span className="text-3xl">⚠️</span> CRITICAL ACTION REQUIRED
                 </h3>
                 <div className="flex flex-col gap-5">
-                  {critical.map((action, i) => (
+                  {critical.map((action: any, i: number) => (
                     // Added break-inside-avoid to individual items to prevent half-printing
                     <div key={i} className="flex gap-4 break-inside-avoid">
                       <div className="font-bold text-xl mt-0.5">{i + 1}.</div>
@@ -120,7 +113,7 @@ export default function PrintableReport({ responses, questionsBank, finalResults
                   SUGGESTED TO PRACTICE
                 </h3>
                 <div className="flex flex-col gap-5">
-                  {suggested.map((action, i) => (
+                  {suggested.map((action: any, i: number) => (
                     <div key={i} className="flex gap-4 break-inside-avoid">
                       <div className="font-bold text-gray-400 mt-0.5">{i + 1}.</div>
                       <div className="flex flex-col gap-1">
