@@ -35,12 +35,11 @@ export default function PrintableReport({
     return { domain, score, tier, badgeLabel };
   });
 
-  // Split long lists for page safety
   const criticalPage1 = critical.slice(0, 5);
   const criticalPage2 = critical.slice(5);
 
-  const suggestedPage1 = suggested.slice(0, 5);
-  const suggestedPage2 = suggested.slice(5);
+  const suggestedPage1 = suggested.slice(0, 8);
+  const suggestedPage2 = suggested.slice(8);
 
   return (
     <div className="w-full flex flex-col items-center bg-gray-200 py-8 print:bg-white print:py-0">
@@ -48,7 +47,7 @@ export default function PrintableReport({
       {/* ================= PAGE 1 ================= */}
       <div className="pdf-page bg-white text-black w-[1200px] min-h-[1600px] p-12 flex flex-col font-sans relative shadow-xl print:shadow-none print:mb-0 mb-8">
         
-        {/* HEADER LOGO & TITLE */}
+        {/* HEADER */}
         <div className="flex justify-between items-center border-b-4 border-black pb-8 mb-10 w-full">
           <div className="flex flex-col">
             <h1 className="text-6xl font-black uppercase tracking-widest text-black">Awareshield</h1>
@@ -77,7 +76,7 @@ export default function PrintableReport({
               <RadarChart domainScores={domainScores} lang={lang} isPrintTheme={true} />
             </div>
 
-            {/* CRITICAL ACTIONS PAGE 1 */}
+            {/* CRITICAL ACTIONS */}
             <div className="flex flex-col gap-6 w-full">
               {criticalPage1.length > 0 && (
                 <div className="border border-black bg-black text-white p-8 rounded-2xl flex flex-col shadow-lg">
@@ -91,26 +90,6 @@ export default function PrintableReport({
                         <div className="flex flex-col gap-1">
                           <strong className="text-lg font-bold tracking-wide">{action.title}</strong>
                           <p className="text-gray-300 text-sm leading-relaxed">{action.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* SUGGESTED ACTIONS PAGE 1 */}
-              {suggestedPage1.length > 0 && (
-                <div className="border-2 border-gray-300 bg-white text-black p-8 rounded-2xl flex flex-col">
-                  <h3 className="text-xl font-bold uppercase tracking-widest mb-6 border-b border-gray-300 pb-4 text-gray-700">
-                    SUGGESTED TO PRACTICE
-                  </h3>
-                  <div className="flex flex-col gap-5">
-                    {suggestedPage1.map((action, i) => (
-                      <div key={i} className="flex gap-4">
-                        <div className="font-bold text-gray-400 mt-0.5">{i + 1}.</div>
-                        <div className="flex flex-col gap-1">
-                          <strong className="font-bold text-md text-gray-800">{action.title}</strong>
-                          <p className="text-gray-600 text-sm leading-relaxed">{action.description}</p>
                         </div>
                       </div>
                     ))}
@@ -190,7 +169,7 @@ export default function PrintableReport({
       </div>
 
       {/* ================= PAGE 2 ================= */}
-      {(criticalPage2.length > 0 || suggestedPage2.length > 0) && (
+      {(criticalPage2.length > 0 || suggestedPage1.length > 0 || suggestedPage2.length > 0) && (
         <div className="pdf-page bg-white text-black w-[1200px] min-h-[1600px] p-12 flex flex-col font-sans relative shadow-xl print:shadow-none print:mb-0 mb-8">
           
           <div className="border-b-4 border-black pb-6 mb-10">
@@ -219,6 +198,25 @@ export default function PrintableReport({
               </div>
             )}
 
+            {suggestedPage1.length > 0 && (
+              <div className="border-2 border-gray-300 bg-white text-black p-8 rounded-2xl flex flex-col">
+                <h3 className="text-xl font-bold uppercase tracking-widest mb-6 border-b border-gray-300 pb-4 text-gray-700">
+                  SUGGESTED TO PRACTICE
+                </h3>
+                <div className="flex flex-col gap-5">
+                  {suggestedPage1.map((action, i) => (
+                    <div key={i} className="flex gap-4">
+                      <div className="font-bold text-gray-400 mt-0.5">{i + 1}.</div>
+                      <div className="flex flex-col gap-1">
+                        <strong className="font-bold text-md text-gray-800">{action.title}</strong>
+                        <p className="text-gray-600 text-sm leading-relaxed">{action.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {suggestedPage2.length > 0 && (
               <div className="border-2 border-gray-300 bg-white text-black p-8 rounded-2xl flex flex-col">
                 <h3 className="text-xl font-bold uppercase tracking-widest mb-6 border-b border-gray-300 pb-4 text-gray-700">
@@ -227,7 +225,7 @@ export default function PrintableReport({
                 <div className="flex flex-col gap-5">
                   {suggestedPage2.map((action, i) => (
                     <div key={i} className="flex gap-4">
-                      <div className="font-bold text-gray-400 mt-0.5">{i + 6}.</div>
+                      <div className="font-bold text-gray-400 mt-0.5">{i + 9}.</div>
                       <div className="flex flex-col gap-1">
                         <strong className="font-bold text-md text-gray-800">{action.title}</strong>
                         <p className="text-gray-600 text-sm leading-relaxed">{action.description}</p>
