@@ -35,11 +35,16 @@ export default function PrintableReport({
     return { domain, score, tier, badgeLabel };
   });
 
+  // -------- Pagination Logic --------
   const criticalPage1 = critical.slice(0, 5);
   const criticalPage2 = critical.slice(5);
 
-  const suggestedPage1 = suggested.slice(0, 8);
-  const suggestedPage2 = suggested.slice(8);
+  // Suggested should NOT stay on page 1 (to avoid overflow)
+  const suggestedPage2 = suggested.slice(0, 8);
+  const suggestedPage3 = suggested.slice(8);
+
+  const hasPage2 = criticalPage2.length > 0 || suggestedPage2.length > 0;
+  const hasPage3 = suggestedPage3.length > 0;
 
   return (
     <div className="w-full flex flex-col items-center bg-gray-200 py-8 print:bg-white print:py-0">
@@ -169,7 +174,7 @@ export default function PrintableReport({
       </div>
 
       {/* ================= PAGE 2 ================= */}
-      {(criticalPage2.length > 0 || suggestedPage1.length > 0 || suggestedPage2.length > 0) && (
+      {hasPage2 && (
         <div className="pdf-page bg-white text-black w-[1200px] min-h-[1600px] p-12 flex flex-col font-sans relative shadow-xl print:shadow-none print:mb-0 mb-8">
           
           <div className="border-b-4 border-black pb-6 mb-10">
@@ -198,13 +203,13 @@ export default function PrintableReport({
               </div>
             )}
 
-            {suggestedPage1.length > 0 && (
+            {suggestedPage2.length > 0 && (
               <div className="border-2 border-gray-300 bg-white text-black p-8 rounded-2xl flex flex-col">
                 <h3 className="text-xl font-bold uppercase tracking-widest mb-6 border-b border-gray-300 pb-4 text-gray-700">
                   SUGGESTED TO PRACTICE
                 </h3>
                 <div className="flex flex-col gap-5">
-                  {suggestedPage1.map((action, i) => (
+                  {suggestedPage2.map((action, i) => (
                     <div key={i} className="flex gap-4">
                       <div className="font-bold text-gray-400 mt-0.5">{i + 1}.</div>
                       <div className="flex flex-col gap-1">
@@ -217,24 +222,47 @@ export default function PrintableReport({
               </div>
             )}
 
-            {suggestedPage2.length > 0 && (
-              <div className="border-2 border-gray-300 bg-white text-black p-8 rounded-2xl flex flex-col">
-                <h3 className="text-xl font-bold uppercase tracking-widest mb-6 border-b border-gray-300 pb-4 text-gray-700">
-                  MORE SUGGESTED PRACTICES
-                </h3>
-                <div className="flex flex-col gap-5">
-                  {suggestedPage2.map((action, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="font-bold text-gray-400 mt-0.5">{i + 9}.</div>
-                      <div className="flex flex-col gap-1">
-                        <strong className="font-bold text-md text-gray-800">{action.title}</strong>
-                        <p className="text-gray-600 text-sm leading-relaxed">{action.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            {!hasPage3 && criticalPage2.length === 0 && suggestedPage2.length === 0 && (
+              <div className="p-8 border-2 border-gray-300 rounded-2xl text-center">
+                <h2 className="text-2xl font-black text-gray-400">NO ADDITIONAL ACTIONS</h2>
               </div>
             )}
+          </div>
+
+          <div className="w-full border-t border-gray-300 mt-12 pt-6 flex justify-between text-gray-400 text-xs font-bold uppercase tracking-widest">
+            <span>Verified by Awareshield</span>
+            <span>Generated Securely via Local Client</span>
+          </div>
+        </div>
+      )}
+
+      {/* ================= PAGE 3 ================= */}
+      {hasPage3 && (
+        <div className="pdf-page bg-white text-black w-[1200px] min-h-[1600px] p-12 flex flex-col font-sans relative shadow-xl print:shadow-none print:mb-0 mb-8">
+          
+          <div className="border-b-4 border-black pb-6 mb-10">
+            <h2 className="text-4xl font-black uppercase tracking-widest text-black">
+              Additional Suggested Practices
+            </h2>
+          </div>
+
+          <div className="flex flex-col gap-8 flex-1">
+            <div className="border-2 border-gray-300 bg-white text-black p-8 rounded-2xl flex flex-col">
+              <h3 className="text-xl font-bold uppercase tracking-widest mb-6 border-b border-gray-300 pb-4 text-gray-700">
+                MORE SUGGESTED PRACTICES
+              </h3>
+              <div className="flex flex-col gap-5">
+                {suggestedPage3.map((action, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="font-bold text-gray-400 mt-0.5">{i + 9}.</div>
+                    <div className="flex flex-col gap-1">
+                      <strong className="font-bold text-md text-gray-800">{action.title}</strong>
+                      <p className="text-gray-600 text-sm leading-relaxed">{action.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="w-full border-t border-gray-300 mt-12 pt-6 flex justify-between text-gray-400 text-xs font-bold uppercase tracking-widest">
