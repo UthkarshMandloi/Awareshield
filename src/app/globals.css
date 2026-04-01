@@ -62,3 +62,21 @@ body {
   color: transparent;
   animation: shine 12s linear infinite;
 }
+
+@media print {
+  .pdf-page {
+    page-break-after: always;
+    break-after: page;
+    margin: 0 auto;
+    box-shadow: none !important;
+  }
+
+  .pdf-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  body {
+    background: white !important;
+  }
+}
